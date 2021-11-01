@@ -9,21 +9,24 @@ import {
 
 function App() {
   return (
+
+    /* a partir de aca hace el html de la navbar, tiene que estar
+      todx dentro de un div que incluya todx, las clases con className*/
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* borra si queres
+       esto que hice aca abajo, era para probar*/}
+      <div>
+        <header className="App-header">
+          <nav>
+            <ul className="navbar">
+              <li className="navbar-element"><a href="">Inicio</a></li>
+              <li className="navbar-element"><a href="">Mi Cuenta</a></li>
+              <li className="navbar-element"><a href="">Sobre Nosotros</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
     </div>
   );
 }
