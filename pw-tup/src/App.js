@@ -18,13 +18,15 @@ function App() {
        esto que hice aca abajo, era para probar*/}
       <div>
         <header className="App-header">
+          <img className={logo} src="logo.svg" alt="logo"/>
           <nav>
             <ul className="navbar">
-              <li className="navbar-element"><a href="">Inicio</a></li>
-              <li className="navbar-element"><a href="">Mi Cuenta</a></li>
-              <li className="navbar-element"><a href="">Sobre Nosotros</a></li>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Ventas</a></li>
             </ul>
           </nav>
+          <a href="#"><button>Registrarme</button></a>
         </header>
       </div>
     </div>
