@@ -23,7 +23,7 @@ function App() {
             <ul className="navbar">
               <li><a href="#">Inicio</a></li>
               <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Ventas</a></li>
+              <li><a href="#">Productos</a></li>
             </ul>
           </nav>
           <a href="#"><button>Registrarme</button></a>
