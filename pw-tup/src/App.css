@@ -10,8 +10,8 @@
 li, a, button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  color: black;
+  font-size: 18px;
+  color: white;
   text-decoration: none;
 }
 
@@ -21,6 +21,7 @@ header {
   align-content: center;
   padding: 20px 10%;
 }
+
 
 .logo {
   cursor: pointer;
@@ -57,6 +58,12 @@ button:hover {
 }
 
 .App-header {
+  height: 100px;
+  background-color: black;
+}
+
+.logo {
+  top: 0;
   height: 70px;
-  background-color: grey;
+  width: 70px;
 }
