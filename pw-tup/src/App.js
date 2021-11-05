@@ -24,10 +24,12 @@ function App() {
               <li><a href="#">Inicio</a></li>
               <li><a href="#">Nosotros</a></li>
               <li><a href="#">Cervezas</a>
-                <li>Lager</li>
-                <li>Amber</li>
-                <li>IPA</li>
-                <li>Stout</li>
+                <ul>
+                  <li><a href="#">Lager</a></li>
+                  <li><a href="#">Amber</a></li>
+                  <li><a href="#">IPA</a></li>
+                  <li><a href="#">Stout</a></li>
+                </ul>
               </li>
             </ul>
           </nav>

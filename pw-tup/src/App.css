@@ -67,3 +67,30 @@ button:hover {
   height: 70px;
   width: 70px;
 }
+
+.navbar > li {
+  float:left;
+}
+
+.navbar li a {
+  display:block;
+}
+
+.navbar li ul {
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+
+.navbar li:hover > ul {
+  display:block;
+}
+
+.navbar li ul li {
+  position:relative;
+}
+
+.navbar li ul li ul {
+  right:-140px;
+  top:0px;
+}
