@@ -60,6 +60,7 @@ button:hover {
 .App-header {
   height: 100px;
   background-color: black;
+  align-items: center;
 }
 
 .logo {
