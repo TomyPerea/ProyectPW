@@ -17,7 +17,7 @@ function App() {
   return ( <Router>
         <div>
           <Switch>
-            <Route path="/main">
+            <Route path="/">
               <Navbar />
             </Route>
             <Route path="/main/nosotros">

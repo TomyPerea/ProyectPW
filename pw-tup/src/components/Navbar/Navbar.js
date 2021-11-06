@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Navbar = () => {
 
-    return ( <div className="App">
+    return (<div className="App">
         <div>
             <header className="App-header">
                 <div className="sep">
