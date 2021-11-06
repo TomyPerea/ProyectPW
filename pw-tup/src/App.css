@@ -61,7 +61,17 @@ button:hover {
   height: 100px;
   background-color: black;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
+
+.sep {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
 
 .logo {
   top: 0;
