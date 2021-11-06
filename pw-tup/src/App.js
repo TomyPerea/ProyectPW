@@ -8,14 +8,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+
   return (
 
-    /* a partir de aca hace el html de la navbar, tiene que estar
-      todx dentro de un div que incluya todx, las clases con className*/
-
     <div className="App">
-      {/* borra si queres
-       esto que hice aca abajo, era para probar*/}
       <div>
         <header className="App-header">
           <img src={pgimg} className="logo" alt="logo"/>
