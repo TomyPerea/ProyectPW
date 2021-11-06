@@ -1,4 +1,4 @@
-
+import React from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -7,34 +7,45 @@ import {
   Link
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Nosotros from "./components/Nosotros";
-import Rubias from "./components/Beer/Rubias";
+import Us from "./components/Nosotros";
+import Blondes from "./components/Beer/Blondes";
 import Rojas from "./components/Beer/Rojas";
-import Negras from "./components/Beer/Negras";
+import Blacks from "./components/Beer/Negras";
 
 function App() {
 
-  return ( <Router>
+  return (
+      <Router>
         <div>
           <Switch>
-            <Route path="/">
+            <Route estrict path="">
               <Navbar />
             </Route>
-            <Route path="/main/nosotros">
-              <Nosotros />
-            </Route>
-            <Route path="/main/rubias">
-              <Rubias />
-            </Route>
-            <Route path="/main/rojas">
-              <Rojas />
-            </Route>
-            <Route path="/main/negras">
-              <Negras />
-            </Route>
-            <Route path="/main/signin">
-              <Negras />
-            </Route>
+            <Switch>
+              <Route estrict path="/us">
+                <Us />
+              </Route>
+            </Switch>
+            <Switch>
+              <Route path="/blondes">
+                <Blondes />
+              </Route>
+            </Switch>
+            <Switch>
+              <Route path="/rojas">
+                <Rojas />
+              </Route>
+            </Switch>
+            <Switch>
+              <Route path="/blacks">
+                <Blacks />
+              </Route>
+            </Switch>
+            <Switch>
+              <Route path="/signin">
+                <Blacks />
+              </Route>
+            </Switch>
           </Switch>
         </div>
       </Router>

@@ -1,5 +1,5 @@
 
-const Rubias = () => {
+const Blondes = () => {
     return (
         <div>
             <h2>Hola! Esta es la cerveza rubia</h2>
@@ -7,4 +7,4 @@ const Rubias = () => {
             );
 }
 
-export default Rubias;
+export default Blondes;
