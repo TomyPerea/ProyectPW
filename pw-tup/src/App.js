@@ -7,12 +7,11 @@ import {
   Link
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Us from "./components/Nosotros";
-import Blondes from "./components/Blondes";
-import Rojas from "./components/Rojas";
-import Blacks from "./components/Negras";
+import Blondes from "./components/Beers/Blondes";
+import Rojas from "./components/Beers/Rojas";
+import Negras from "./components/Beers/Negras";
 import Nosotros from "./components/Nosotros";
-import InicioSesion from "./components/InicioSesion";
+import InicioSesion from "./components/InicioSesion/InicioSesion";
 
 function App() {
 
@@ -20,7 +19,7 @@ function App() {
       <Router>
         <div>
           <Switch>
-            <Route estrict path="/main">
+            <Route estrict path="">
               <Navbar />
               <Route estrict path="/main/nosotros">
                 <Nosotros />
@@ -31,8 +30,8 @@ function App() {
               <Route path="/main/rojas">
                 <Rojas />
               </Route>
-              <Route path="/main/blacks">
-                <Blacks />
+              <Route path="/main/negras">
+                <Negras />
               </Route>
               <Route path="/main/signin">
                 <InicioSesion />
