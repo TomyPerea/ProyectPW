@@ -19,21 +19,21 @@ function App() {
       <Router>
         <div>
           <Switch>
-            <Route estrict path="">
+            <Route path="">
               <Navbar />
-              <Route estrict path="/main/nosotros">
+              <Route path="/nosotros">
                 <Nosotros />
               </Route>
-              <Route path="/main/blondes">
+              <Route path="/blondes">
                 <Blondes />
               </Route>
-              <Route path="/main/rojas">
+              <Route path="/rojas">
                 <Rojas />
               </Route>
-              <Route path="/main/negras">
+              <Route path="/negras">
                 <Negras />
               </Route>
-              <Route path="/main/signin">
+              <Route path="/signin">
                 <InicioSesion />
               </Route>
             </Route>

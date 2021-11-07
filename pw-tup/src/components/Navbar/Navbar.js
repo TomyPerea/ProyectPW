@@ -12,20 +12,20 @@ const Navbar = () => {
                     <img src={pgimg} className="logo" alt="logo"/>
                     <nav>
                         <ul className="navbar">
-                            <Link to={'/main'}><li>Inicio</li></Link>
-                            <Link to={'/main/nosotros'}><li>Nosotros</li></Link>
+                            <Link to={'/'}><li>Inicio</li></Link>
+                            <Link to={'/nosotros'}><li>Nosotros</li></Link>
                             <li>Cervezas
                                 <ul>
-                                    <Link to={'/main/blondes'}><li>Rubias</li></Link>
-                                    <Link to={'/main/rojas'}><li>Rojas</li></Link>
-                                    <Link to={'/main/negras'}><li>Negras</li></Link>
+                                    <Link to={'/blondes'}><li>Rubias</li></Link>
+                                    <Link to={'/rojas'}><li>Rojas</li></Link>
+                                    <Link to={'/negras'}><li>Negras</li></Link>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <div>
-                    <Link to={'/main/signin'}><button>Inicia sesion</button></Link>
+                    <Link to={'/signin'}><button>Inicia sesion</button></Link>
                 </div>
             </div>
         </div>
