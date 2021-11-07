@@ -8,9 +8,11 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Us from "./components/Nosotros";
-import Blondes from "./components/Beer/Blondes";
-import Rojas from "./components/Beer/Rojas";
-import Blacks from "./components/Beer/Negras";
+import Blondes from "./components/Blondes";
+import Rojas from "./components/Rojas";
+import Blacks from "./components/Negras";
+import Nosotros from "./components/Nosotros";
+import InicioSesion from "./components/InicioSesion";
 
 function App() {
 
@@ -18,34 +20,24 @@ function App() {
       <Router>
         <div>
           <Switch>
-            <Route estrict path="">
+            <Route estrict path="/main">
               <Navbar />
-            </Route>
-            <Switch>
-              <Route estrict path="/us">
-                <Us />
+              <Route estrict path="/main/nosotros">
+                <Nosotros />
               </Route>
-            </Switch>
-            <Switch>
-              <Route path="/blondes">
+              <Route path="/main/blondes">
                 <Blondes />
               </Route>
-            </Switch>
-            <Switch>
-              <Route path="/rojas">
+              <Route path="/main/rojas">
                 <Rojas />
               </Route>
-            </Switch>
-            <Switch>
-              <Route path="/blacks">
+              <Route path="/main/blacks">
                 <Blacks />
               </Route>
-            </Switch>
-            <Switch>
-              <Route path="/signin">
-                <Blacks />
+              <Route path="/main/signin">
+                <InicioSesion />
               </Route>
-            </Switch>
+            </Route>
           </Switch>
         </div>
       </Router>

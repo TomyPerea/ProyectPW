@@ -1,4 +1,3 @@
-
 const Blondes = () => {
     return (
         <div>

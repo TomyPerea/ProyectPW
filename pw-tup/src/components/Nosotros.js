@@ -1,4 +1,3 @@
-
 const Nosotros = () => {
     return <h2>Hola! Este es mi perfil</h2>
 }
