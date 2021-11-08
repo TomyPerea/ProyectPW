@@ -1,0 +1,9 @@
+.form {
+    padding-top: 30px;
+}
+
+.center {
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+}

@@ -12,6 +12,7 @@ import Rojas from "./components/Beers/Rojas";
 import Negras from "./components/Beers/Negras";
 import Nosotros from "./components/Nosotros";
 import InicioSesion from "./components/InicioSesion/InicioSesion";
+import Registrarme from "./components/Registrarme";
 
 function App() {
 
@@ -35,6 +36,9 @@ function App() {
               </Route>
               <Route path="/signin">
                 <InicioSesion />
+              </Route>
+              <Route path="/registrarme">
+                <Registrarme />
               </Route>
             </Route>
           </Switch>

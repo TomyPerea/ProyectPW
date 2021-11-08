@@ -63,9 +63,8 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: left;
-    margin-left: 10px;
+    margin-left: 50px;
 }
-
 
 .logo {
     top: 0;
@@ -93,9 +92,9 @@ button:hover {
 
 .navbar li ul li {
     position: relative;
+    background-color: black;
 }
 
 .navbar li ul li ul {
     right:-140px;
-
 }
