@@ -3,8 +3,11 @@ import {Link} from "react-router-dom";
 
 const InicioSesion = () => {
     return (
-      <div>
-          <div className="center">
+      <div className="login">
+          <div>
+              <h1>Registrate para poder realizar compras</h1>
+          </div>
+          <div className="form-container1 center">
               <form className="form-horizontal">
                   <div className="form-group">
                       <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
@@ -32,14 +35,13 @@ const InicioSesion = () => {
                   </div>
                   <div className="form-group">
                       <div className="col-sm-offset-2 col-sm-10 buttons">
-                          <button type="submit" className="btn btn-default button">Ingresar</button>
+                          <button type="submit" className="btn btn-default button registerbutton">Ingresar</button>
                           <Link to={'./registrarme'}><button type="submit" className="btn btn-default button">Registrarme</button></Link>
                       </div>
                   </div>
               </form>
           </div>
       </div>
-
     );
 }
 

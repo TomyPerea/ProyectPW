@@ -2,7 +2,7 @@ import "./Registrarme.css"
 
 const Registrarme = () => {
     return (
-        <div>
+        <div className="form-container">
             <div className="center">
                 <form className="form-horizontal">
                     <div className="form-group">
@@ -48,7 +48,7 @@ const Registrarme = () => {
                         </div>
                     </div>
                     <div className="form-group form">
-                        <div className="col-sm-offset-2 buttons">
+                        <div className="col-sm-offset-2 buttons registerbutton">
                             <button type="submit" className="btn btn-default button">Registrarme</button>
                         </div>
                     </div>
