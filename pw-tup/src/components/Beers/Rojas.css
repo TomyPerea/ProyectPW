@@ -1,0 +1,12 @@
+.red-container {
+    background-color: darkred;
+    height: 80px;
+}
+
+.red-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}

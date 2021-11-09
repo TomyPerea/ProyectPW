@@ -1,7 +1,11 @@
+import "./Rojas.css";
+
 const Rojas = () => {
     return (
         <div>
-            <h2>Hola! Esta es la cerveza roja</h2>
+            <div className="red-container">
+                <h1 className="red-title">ROJAS</h1>
+            </div>
         </div>
     );
 }

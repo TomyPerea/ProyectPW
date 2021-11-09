@@ -1,5 +1,13 @@
+import "./Negras.css";
+
 const Negras = () => {
-    return <h2>Hola! Este es la cerveza negra</h2>
+    return (
+        <div>
+            <div className="black-container">
+                <h1 className="black-title">NEGRAS</h1>
+            </div>
+        </div>
+    );
 }
 
 export default Negras;

@@ -1,7 +1,13 @@
+import "./Blondes.css";
+
 const Blondes = () => {
     return (
         <div>
-            <h2>Hola! Esta es la cerveza rubia</h2>
+            <div>
+                <div className="blondes-container">
+                    <h1 className="blondes-title">RUBIAS</h1>
+                </div>
+            </div>
         </div>
             );
 }
