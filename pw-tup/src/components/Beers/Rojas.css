@@ -10,3 +10,48 @@
     text-align: center;
     padding: 20px;
 }
+/* Product CSS */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid black;
+    width: 250px;
+    height: 330px;
+    margin: 20px;
+}
+
+.img-product {
+    height: 100px;
+    width: 80;
+    margin: 5px;
+}
+
+.product-title {
+    font-size: 18px;
+    text-align: center;
+    margin: 5px;
+}
+
+.product-cantidad {
+    color: grey;
+    margin: 5px;
+}
+
+.product-button {
+    margin: 20px;
+}
+
+.product-price {
+    display: flex;
+    border: 1px solid black;
+    margin: 3px;
+    font-size: 15px;
+    width: 60px;
+    text-align: center;
+}
+
+.product-box {
+    width: 60px;
+}
