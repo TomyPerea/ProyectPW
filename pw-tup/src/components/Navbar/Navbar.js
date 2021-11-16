@@ -14,13 +14,7 @@ const Navbar = () => {
                         <ul className="navbar">
                             <Link to={'/'}><li>Inicio</li></Link>
                             <Link to={'/nosotros'}><li>Nosotros</li></Link>
-                            <li>Cervezas
-                                <ul>
-                                    <Link to={'/blondes'}><li>Rubias</li></Link>
-                                    <Link to={'/rojas'}><li>Rojas</li></Link>
-                                    <Link to={'/negras'}><li>Negras</li></Link>
-                                </ul>
-                            </li>
+                            <Link to={'/beers'}><li>Cervezas</li></Link>
                         </ul>
                     </nav>
                 </div>
