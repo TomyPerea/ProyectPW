@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="012e35a5-df7b-4161-9048-e14156ea6cec" name="Changes" comment="." />
+    <list default="true" id="012e35a5-df7b-4161-9048-e14156ea6cec" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pw-tup/src/components/Beers/Blondes.js" beforeDir="false" afterPath="$PROJECT_DIR$/pw-tup/src/components/Beers/Blondes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +45,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -89,6 +93,9 @@
       <workItem from="1636410223680" duration="4187000" />
       <workItem from="1636489050486" duration="6787000" />
       <workItem from="1636638441254" duration="626000" />
+      <workItem from="1636825666815" duration="552000" />
+      <workItem from="1636828497746" duration="279000" />
+      <workItem from="1636829505678" duration="763000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1636222505803</created>
@@ -139,5 +146,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
