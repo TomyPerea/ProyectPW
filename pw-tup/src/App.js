@@ -7,9 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Blondes from "./components/Beers/Blondes";
-import Rojas from "./components/Beers/Rojas";
-import Negras from "./components/Beers/Negras";
+import Beers from "./components/Beers/Beers";
 import Nosotros from "./components/Nosotros";
 import InicioSesion from "./components/InicioSesion/InicioSesion";
 import Registrarme from "./components/Registrarme";
@@ -25,14 +23,8 @@ function App() {
               <Route path="/nosotros">
                 <Nosotros />
               </Route>
-              <Route path="/blondes">
-                <Blondes />
-              </Route>
-              <Route path="/rojas">
-                <Rojas />
-              </Route>
-              <Route path="/negras">
-                <Negras />
+              <Route path="/beers">
+                <Beers />
               </Route>
               <Route path="/signin">
                 <InicioSesion />

@@ -10,7 +10,7 @@ router.register(r'beers', BeersViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('login/refesh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', RegisterView.as_view()),
     path('me/', me)
 ]
