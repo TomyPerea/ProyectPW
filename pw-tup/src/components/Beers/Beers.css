@@ -1,6 +1,25 @@
+.blondes-container {
+    background-color: #EFB818;
+    height: 80px;
+}
+
+.blondes-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
 .red-container {
     background-color: darkred;
     height: 80px;
+}
+
+.order {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .red-title {
