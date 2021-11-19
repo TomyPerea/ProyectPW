@@ -9,7 +9,7 @@ class BeersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beers
         fields = "__all__"
-        
+
     def create(self, validated_data):
         beer = super(BeersSerializer, self).create(validated_data)
         return beer
@@ -17,7 +17,7 @@ class BeersSerializer(serializers.ModelSerializer):
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    first_name = serializers.CharField(max)
+    first_name = serializers.CharField(max_length=30)
 
     class Meta:
         model = get_user_model()
