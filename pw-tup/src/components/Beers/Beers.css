@@ -78,6 +78,15 @@
 .Big-container{
     flex-wrap: wrap;
 }
-.list{
+.botones-container{
+    display: flex;
+    flex-direction: column;
+}
+.filtro{
     color: black;
 }
+.tipodebir{
+
+    color: brown;
+}
+
