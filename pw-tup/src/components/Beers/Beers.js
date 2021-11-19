@@ -1,23 +1,92 @@
 import "./Beers.css";
 import pgimg from "../../images/logo1.png";
-const beers = ["Andes rubia", "Stella Artois","Patagonia Weiss","Stout", "Choco Ale","Black Mamba","Dark Reservoir","Andes Roja", "Patagonia Amber Lager", "American Amber Lager","Oranjeboom","Barba Roja Diabla"]
-const prices = [100, 200, 300, 100, 200, 300, 100, 200, 300, 100, 200, 300]
+import {useEffect, useState} from "react";
+import {httpGet} from "../../Utils/httpFunctions";
+const axios = require('axios');
 
-const Beers = () => {
+
+//const prices = [100, 200, 300, 100, 200, 300, 100, 200, 300, 100, 200, 300]
+
+function Beers () {
+
+    const [Rubias, setRubias] = useState(false)
+    const [Rojas, setRojas] = useState(false)
+    const [Negras, setNegras] = useState(false)
+    const [Beers, setBeers] = useState([])
+
+    const clickfunction = () => {
+        setRubias(!Rubias)
+    }
+    const negrasfilter = () => {
+        setNegras(!Negras)
+    }
+    const redfilter = () => {
+        setRojas(!Rojas)
+    }
+
+    let finalbeers;
+    if (Rubias) {
+         finalbeers = Beers.filter((beer) => {
+            return beer.type === "rubia"
+        })
+    } else if (Negras) {
+        finalbeers = Beers.filter((beer) => {
+            return beer.type === "negra"
+        })
+    } else if (Rojas){
+        finalbeers = Beers.filter((beer) => {
+            return beer.type === "roja"
+        })
+    } else {
+         finalbeers = Beers
+    }
+    function myFunction() {
+        let x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    const fetchbeers = () => {
+        httpGet('api/beers/')
+            .then((data) => setBeers(data))
+    }
+
+    useEffect(fetchbeers, [])
+
+
+
     return (
         <div>
             <div>
                 <div className="blondes-container">
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
                 </div>
+                <div className="botones-container">
+                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar </button>
+                    <div className="x" id="myDIV">
+                        <div>
+                            <input type="checkbox" className="item-type" onClick={clickfunction} />Rubias
+                        </div>
+                        <div>
+                            <input type="checkbox" className="item-type" onClick={negrasfilter}  />Negras
+                        </div>
+                        <div>
+                            <input type="checkbox" className="item-type" onClick={redfilter}  />Rojas
+                        </div>
+                    </div>
+                </div>
+
                 <div className="products-container">
                     {
-                        beers.map((beer, price) => {
+                        finalbeers.map((beer) => {
                             return (
                                 <div className="product-container">
                                     <img src={pgimg} className="img-product" alt="logo"/>
-                                    <h2 className="product-title">{beer}</h2>
-                                    <h2 className="product-price">{price}</h2>
+                                    <h2 className="product-title">{beer.name}</h2>
+                                    <h2 className="product-price">100</h2>
                                     <label className="product-cantidad">Cantidad</label>
                                     <input type="number" className="product-box"/>
                                     <button className="product-button">Descripcion</button>
@@ -28,7 +97,20 @@ const Beers = () => {
                 </div>
             </div>
         </div>
-            );
+    );
 }
-
 export default Beers;
+/*
+<ul>
+    <li className="list"
+    >
+        <ul>
+            <li className="list" onClick={clickfunction}>rubias</li>
+            <li className="list"onClick={negrasfilter}>negras</li>
+            <li className="list"onClick={redfilter}>rojas</li>
+        </ul>
+    </li>
+</ul>*/
+
+//<button className="tipodebir" >Rubias</button>
+//<button className="tipodebir" >Negras</button>
