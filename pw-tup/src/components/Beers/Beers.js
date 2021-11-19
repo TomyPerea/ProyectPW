@@ -1,28 +1,18 @@
 import "./Beers.css";
 import pgimg from "../../images/logo1.png";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {httpGet} from "../../Utils/httpFunctions";
+const axios = require('axios');
 
 
 //const prices = [100, 200, 300, 100, 200, 300, 100, 200, 300, 100, 200, 300]
 
 function Beers () {
-    const beers = [
-        {name: "Andes rubia", type: "rubia"},
-        {name: "Stella Artois", type: "rubia"},
-        {name: "Patagonia Weiss", type: "rubia"},
-        {name: "Stout", type: "negra"},
-        {name: "Choco Ale", type: "negra"},
-        {name: "Black Mamba", type: "negra"},
-        {name: "Dark Reservoir", type: "negra"},
-        {name: "Andes Roja", type: "roja"},
-        {name: "Patagonia Amber Lager", type: "roja"},
-        {name: "American Amber Lager", type: "roja"},
-        {name: "Oranjeboom", type: "roja"},
-        {name: "Barba Roja Diabla", type: "roja"}]
 
     const [Rubias, setRubias] = useState(false)
     const [Rojas, setRojas] = useState(false)
     const [Negras, setNegras] = useState(false)
+    const [Beers, setBeers] = useState([])
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -36,19 +26,19 @@ function Beers () {
 
     let finalbeers;
     if (Rubias) {
-         finalbeers = beers.filter((beer) => {
+         finalbeers = Beers.filter((beer) => {
             return beer.type === "rubia"
         })
     } else if (Negras) {
-        finalbeers = beers.filter((beer) => {
+        finalbeers = Beers.filter((beer) => {
             return beer.type === "negra"
         })
     } else if (Rojas){
-        finalbeers = beers.filter((beer) => {
+        finalbeers = Beers.filter((beer) => {
             return beer.type === "roja"
         })
     } else {
-         finalbeers = beers
+         finalbeers = Beers
     }
     function myFunction() {
         let x = document.getElementById("myDIV");
@@ -58,6 +48,15 @@ function Beers () {
             x.style.display = "none";
         }
     }
+
+    const fetchbeers = () => {
+        httpGet('api/beers/')
+            .then((data) => setBeers(data))
+    }
+
+    useEffect(fetchbeers, [])
+
+
 
     return (
         <div>
@@ -69,13 +68,13 @@ function Beers () {
                     <button className="filtro" id="sex" onClick={myFunction}>Filtrar </button>
                     <div className="x" id="myDIV">
                         <div>
-                            <input type="checkbox" onClick={clickfunction} />Rubias
+                            <input type="checkbox" className="item-type" onClick={clickfunction} />Rubias
                         </div>
                         <div>
-                            <input type="checkbox"  onClick={negrasfilter}  />Negras
+                            <input type="checkbox" className="item-type" onClick={negrasfilter}  />Negras
                         </div>
                         <div>
-                            <input type="checkbox"  onClick={redfilter}  />Rojas
+                            <input type="checkbox" className="item-type" onClick={redfilter}  />Rojas
                         </div>
                     </div>
                 </div>
