@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+li, a, button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.logo {
+    cursor: pointer;
+}
+
+.navbar {
+    list-style: none;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.navbar li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navbar li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: 1px solid black;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-right: 20px;
+}
+
+button:hover {
+    background-color: rgba(0,136,169,0.6);
+}
+
+.App-header {
+    height: 100px;
+    background-color: black;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sep {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+.logo {
+    top: 0;
+    height: 70px;
+    width: 70px;
+}
+
+.navbar > li {
+    float:left;
+}
+
+.navbar li a {
+    display:block;
+}
+
+.navbar li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.navbar li:hover > ul {
+    display:block;
+}
+
+.navbar li ul li {
+    position: relative;
+    background-color: black;
+    width: 80px;
+    padding: 10px;
+}
+
+
+.navbar li ul li ul {
+    right:-140px;
+}
