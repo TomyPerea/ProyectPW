@@ -1,7 +1,7 @@
 import "./Beers.css";
 import pgimg from "../../images/logo1.png";
 import {useEffect, useState} from "react";
-import {httpGet} from "../../Utils/httpFunctions";
+import {httpGet, httpPost} from "../../Utils/httpFunctions";
 const axios = require('axios');
 
 
@@ -13,6 +13,9 @@ function Beers () {
     const [Rojas, setRojas] = useState(false)
     const [Negras, setNegras] = useState(false)
     const [Beers, setBeers] = useState([])
+    const [nombre, setNombre] = useState([])
+    const [precio, setPrecio] = useState([])
+    const [estilo, setEstilo] = useState([])
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -26,20 +29,21 @@ function Beers () {
 
     let finalbeers;
     if (Rubias) {
-         finalbeers = Beers.filter((beer) => {
+        finalbeers = Beers.filter((beer) => {
             return beer.type === "rubia"
         })
     } else if (Negras) {
         finalbeers = Beers.filter((beer) => {
             return beer.type === "negra"
         })
-    } else if (Rojas){
+    } else if (Rojas) {
         finalbeers = Beers.filter((beer) => {
             return beer.type === "roja"
         })
     } else {
-         finalbeers = Beers
+        finalbeers = Beers
     }
+
     function myFunction() {
         let x = document.getElementById("myDIV");
         if (x.style.display === "none") {
@@ -51,11 +55,15 @@ function Beers () {
 
     const fetchbeers = () => {
         httpGet('api/beers/')
-            .then((data) => setBeers(data))
+            .then((res) => setBeers(res.data))
+    }
+
+    const createBeers = (name, price, type) => {
+        httpPost('api/beers/', {nombre: nombre, precio: precio, estilo: estilo})
+            .then(fetchbeers)
     }
 
     useEffect(fetchbeers, [])
-
 
 
     return (
@@ -65,17 +73,40 @@ function Beers () {
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
                 </div>
                 <div className="botones-container">
-                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar </button>
+                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
                     <div className="x" id="myDIV">
                         <div>
-                            <input type="checkbox" className="item-type" onClick={clickfunction} />Rubias
+                            <input type="checkbox" className="item-type" onClick={clickfunction}/>Rubias
                         </div>
                         <div>
-                            <input type="checkbox" className="item-type" onClick={negrasfilter}  />Negras
+                            <input type="checkbox" className="item-type" onClick={negrasfilter}/>Negras
                         </div>
                         <div>
-                            <input type="checkbox" className="item-type" onClick={redfilter}  />Rojas
+                            <input type="checkbox" className="item-type" onClick={redfilter}/>Rojas
                         </div>
+                    </div>
+                    <div>
+                        <form onSubmit={createBeers}>
+                            <fieldset>
+                                <legend>Disabled fieldset example</legend>
+                                <div className="mb-3">
+                                    <label className="form-label">Nombre</label>
+                                    <input type="text" className="form-control" value={nombre}
+                                           onChange={(e) =>setNombre(e.target.value)}/>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Precio</label>
+                                    <input type="number" className="form-control" value={precio}
+                                           onChange={(e) =>setPrecio(e.target.value)}/>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Estilo</label>
+                                    <input type="text" className="form-control" value={estilo}
+                                           onChange={(e) =>setEstilo(e.target.value)}/>
+                                </div>
+                                <button type="submit" className="btn btn-primary">Crear Cerveza</button>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
 
@@ -97,20 +128,8 @@ function Beers () {
                 </div>
             </div>
         </div>
-    );
+    )
 }
-export default Beers;
-/*
-<ul>
-    <li className="list"
-    >
-        <ul>
-            <li className="list" onClick={clickfunction}>rubias</li>
-            <li className="list"onClick={negrasfilter}>negras</li>
-            <li className="list"onClick={redfilter}>rojas</li>
-        </ul>
-    </li>
-</ul>*/
 
-//<button className="tipodebir" >Rubias</button>
-//<button className="tipodebir" >Negras</button>
+export default Beers;
+

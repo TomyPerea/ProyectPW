@@ -14,12 +14,12 @@ class BeersViewSet(viewsets.ModelViewSet):
     serializer_class = BeersSerializer
     queryset = Beers.objects.all()
 
-    def get_permissions(self):
-        if self.action == 'create':
-            self.permission_classes = [IsAuthenticated]
-        else:
-            self.permission_classes = []
-        return super(BeersViewSet, self).get_permissions()
+    # def get_permissions(self):
+    #     if self.action == 'create':
+    #         self.permission_classes = [IsAuthenticated]
+    #     else:
+    #         self.permission_classes = []
+    #     return super(BeersViewSet, self).get_permissions()
 
 
 class RegisterView(generics.CreateAPIView):
