@@ -1,0 +1,83 @@
+.blondes-container {
+    background-color: #EFB818;
+    height: 80px;
+}
+
+.blondes-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+.red-container {
+    background-color: darkred;
+    height: 80px;
+}
+
+.red-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+/* Product CSS */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid black;
+    width: 250px;
+    height: 330px;
+    margin: 20px;
+}
+
+.img-product {
+    height: 100px;
+    width: 80px;
+    margin: 5px;
+    align-items: center;
+}
+
+.product-title {
+    font-size: 18px;
+    text-align: center;
+    margin: 5px;
+}
+
+.product-cantidad {
+    color: grey;
+    margin: 5px;
+}
+
+.product-button {
+    margin: 20px;
+}
+
+.product-price {
+    display: flex;
+    border: 1px solid black;
+    margin: 3px;
+    font-size: 15px;
+    width: 60px;
+    text-align: center;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-box {
+    width: 60px;
+}
+.Big-container{
+    flex-wrap: wrap;
+}
+.list{
+    color: black;
+}
