@@ -58,7 +58,8 @@ function Beers () {
             .then((res) => setBeers(res.data))
     }
 
-    const createBeers = (name, price, type) => {
+    const createBeers = (e) => {
+        e.preventDefault()
         httpPost('api/beers/', {nombre: nombre, precio: precio, estilo: estilo})
             .then(fetchbeers)
     }
