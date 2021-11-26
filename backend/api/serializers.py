@@ -16,11 +16,7 @@ class BeersSerializer(serializers.ModelSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(max_length=20)
-    email = serializers.CharField(max_length=60)
     password = serializers.CharField(write_only=True)
-    first_name = serializers.CharField(max_length=30)
-    last_name = serializers.CharField(max_length=30)
 
     class Meta:
         model = get_user_model()
@@ -32,7 +28,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             password=validated_data['password'],
             first_name=validated_data['first_name'],
-            last_name=validated_data['last_name']
+            last_name=validated_data['last_name'],
         )
         return user
 

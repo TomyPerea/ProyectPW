@@ -1,18 +1,18 @@
 import "./Registrarme.css"
 import {useEffect, useState} from "react";
 import {httpGet, httpPost} from "../Utils/httpFunctions";
+import {Link, useHistory} from 'react-router-dom';
 
 const Registrarme = () => {
+    const history = useHistory()
+
     const [username,setUsername] = useState()
     const [email, setEmail] = useState()
     const [password,setPassword] = useState()
     const [firstname,setFirstname] = useState()
     const [lastname,setLastname] = useState()
 
-    const fetchusers = () => {
-        httpGet('api/register/')
-            .then((res) => setUsername(res.data))
-    }
+
     const createUsername = (e) => {
         e.preventDefault()
         httpPost('api/register/', {username: username,
@@ -20,7 +20,14 @@ const Registrarme = () => {
             password: password,
             firstname: firstname,
             lastname:lastname})
-            .then(fetchusers)
+            .then(res => {
+                    // alert.show('Se ha creado el usuario ', {
+                    //     type: "success"
+                    // })
+                    history.push("/")
+
+                }
+            )
     }
 
     return (
@@ -67,7 +74,6 @@ const Registrarme = () => {
                     <div>
                         <label className="control-label">Username</label>
                         <div className="">
-                            <label htmlFor="exampleFormControlInput1" className="form-label" >Username</label>
                             <input
                                 onChange={(e) => setUsername(e.target.value)}
                                 name="username"
@@ -81,16 +87,6 @@ const Registrarme = () => {
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="inputPassword3" className="control-label">Contraseña</label>
-                        <div className="">
-                            <input type="password" className="form-control" id="inputPassword3" placeholder="Contraseña"/>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="inputPassword3" className="control-label">Reescriba su contraseña</label>
-                        <input type="text" name="newPassword" ref={register({
-                            validate: (value) => value === password || "Passwords don't match."
-                        })} placeholder="Repetir contraseña" required/>
                         <div className="">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Password</label>
                             <input
@@ -104,11 +100,11 @@ const Registrarme = () => {
                             />
                         </div>
                     </div>
-                    <div className="form-group form">
-                        <div className="col-sm-offset-2 buttons registerbutton">
+                    {/*<div className="form-group form">
+                        <div className="col-sm-offset-2 buttons registerbutton">*/}
                             <button type="submit" className="btn btn-default button">Registrarme</button>
-                        </div>
-                    </div>
+                       {/* </div>
+                    </div>*/}
                 </form>
             </div>
         </div>
