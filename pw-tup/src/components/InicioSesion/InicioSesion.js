@@ -1,14 +1,24 @@
 import "./InicioSesion.css"
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 const InicioSesion = () => {
+
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+
+    const login = (e) => {
+
+
+    }
+
     return (
       <div className="login">
           <div>
               <h1>Registrate para poder realizar compras</h1>
           </div>
           <div className="form-container1 center">
-              <form className="form-horizontal">
+              <form className="form-horizontal" onSubmit={login}>
                   <div className="form-group">
                       <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
                       <div className="col-sm-10">
