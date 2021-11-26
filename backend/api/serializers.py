@@ -16,16 +16,20 @@ class BeersSerializer(serializers.ModelSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(max_length=20)
+    email = serializers.CharField(max_length=60)
     password = serializers.CharField(write_only=True)
     first_name = serializers.CharField(max_length=30)
+    last_name = serializers.CharField(max_length=30)
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "password", "first_name", "last_name"]
+        fields = ["username", "email", "password", "first_name", "last_name"]
 
     def create(self, validated_data):
         user = get_user_model().objects.create_user(
             username=validated_data['username'],
+            email=validated_data['email'],
             password=validated_data['password'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
