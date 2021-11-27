@@ -1,13 +1,21 @@
 import "./InicioSesion.css"
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useState} from "react";
+import {httpPost} from "../../Utils/httpFunctions";
 
 const InicioSesion = () => {
 
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
+    const history = useHistory();
+
     const login = (e) => {
+        e.preventDefault()
+        httpPost('api/login/', {username: username, password: password}).then((res) => {
+            localStorage.setItem('token', res.data.access)
+            history.push('/')
+        })
 
 
     }
@@ -20,15 +28,27 @@ const InicioSesion = () => {
           <div className="form-container1 center">
               <form className="form-horizontal" onSubmit={login}>
                   <div className="form-group">
-                      <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
+                      <label htmlFor="inputEmail3" className="col-sm-2 control-label">Username</label>
                       <div className="col-sm-10">
-                          <input type="email" className="form-control" id="inputEmail3" placeholder="Mail"/>
+                          <input
+                              className="form-control"
+                              id="exampleFormControlInput1"
+                              value={username}
+                              onChange={(e) => setUsername(e.target.value)}
+                              placeholder="Username"
+                          />
                       </div>
                   </div>
                   <div className="form-group">
                       <label htmlFor="inputPassword3" className="col-sm-2 control-label">Password</label>
                       <div className="col-sm-10">
-                          <input type="password" className="form-control" id="inputPassword3" placeholder="Contraseña"/>
+                          <input
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                              type="password"
+                              className="form-control"
+                              id="exampleFormControlInput1"
+                              placeholder="Password" />
                       </div>
                   </div>
                   <div className="form-group">
@@ -46,7 +66,7 @@ const InicioSesion = () => {
                   <div className="form-group">
                       <div className="col-sm-offset-2 col-sm-10 buttons">
                           <button type="submit" className="btn btn-default button registerbutton">Ingresar</button>
-                          <Link to={'./registrarme'}><button type="submit" className="btn btn-default button">Registrarme</button></Link>
+                          <Link to={'./registrarme'}><button className="btn btn-default button">Registrarme</button></Link>
                       </div>
                   </div>
               </form>
