@@ -1,34 +1,45 @@
 import "./Registrarme.css"
 import {useEffect, useState} from "react";
-import {httpGet, httpPost} from "../Utils/httpFunctions";
+import {httpGet, httpPost2} from "../Utils/httpFunctions";
 import {Link, useHistory} from 'react-router-dom';
+import swal from 'sweetalert2';
+
+
 
 const Registrarme = () => {
-    const history = useHistory()
 
     const [username,setUsername] = useState()
     const [email, setEmail] = useState()
     const [password,setPassword] = useState()
-    const [firstname,setFirstname] = useState()
-    const [lastname,setLastname] = useState()
+    const [first_name,setFirstname] = useState()
+    const [last_name,setLastname] = useState()
+    const history = useHistory();
 
+    const mostrarAlerta=()=>{
+        swal.fire({
+            title: 'Se ha registrado con éxito, por favor Inicie sesión',
+            icon: 'success'}
+        )
+    }
+    const mostrarError=()=>{
+        swal.fire({
+            title: 'No se pudo registrar, intente nuevamente',
+            icon: 'error'}
+        )
+    }
 
     const createUsername = (e) => {
         e.preventDefault()
-        httpPost('api/register/', {username: username,
+        httpPost2('api/register/', {username: username,
             email: email,
             password: password,
-            firstname: firstname,
-            lastname:lastname})
-            .then(res => {
-                    // alert.show('Se ha creado el usuario ', {
-                    //     type: "success"
-                    // })
-                    history.push("/")
-
-                }
-            )
-    }
+            first_name: first_name,
+            last_name: last_name}).then(() => {
+                mostrarAlerta();
+                history.push('/Login');
+        }).catch(() => {
+            mostrarError();
+        })}
 
     return (
         <div className="form-container">
@@ -54,7 +65,7 @@ const Registrarme = () => {
                                 type="text"
                                 placeholder="Nombre"
                                 className="form-control"
-                                required value={firstname}
+                                required value={first_name}
                             />
                         </div>
                     </div>
@@ -67,7 +78,7 @@ const Registrarme = () => {
                                 type="text"
                                 placeholder="Apellido"
                                 className="form-control"
-                                required value={lastname}
+                                required value={last_name}
                             />
                         </div>
                     </div>
