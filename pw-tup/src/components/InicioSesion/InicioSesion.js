@@ -2,6 +2,7 @@ import "./InicioSesion.css"
 import {Link, useHistory} from "react-router-dom";
 import {useState} from "react";
 import {httpPost} from "../../Utils/httpFunctions";
+import swal from 'sweetalert2';
 
 const InicioSesion = () => {
 
@@ -10,14 +11,19 @@ const InicioSesion = () => {
 
     const history = useHistory();
 
+    const ingresado=()=>{
+        swal.fire({
+            title: 'Ha iniciado sesion correctamente',
+            icon: 'success'}
+        )
+    }
+
     const login = (e) => {
         e.preventDefault()
         httpPost('api/login/', {username: username, password: password}).then((res) => {
             localStorage.setItem('token', res.data.access)
             history.push('/')
         })
-
-
     }
 
     return (
