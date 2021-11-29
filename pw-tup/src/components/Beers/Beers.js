@@ -13,9 +13,10 @@ function Beers () {
     const [Rojas, setRojas] = useState(false)
     const [Negras, setNegras] = useState(false)
     const [Beers, setBeers] = useState([])
-    const [name, setName] = useState([])
-    const [price, setPrice] = useState([])
-    const [type, setType] = useState([])
+    const [nombre, setNombre] = useState([])
+    const [precio, setPrecio] = useState([])
+    const [estilo, setEstilo] = useState([])
+    const [reseña, setreseña] = useState([])
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -60,7 +61,7 @@ function Beers () {
 
     const createBeers = (e) => {
         e.preventDefault()
-        httpPost('api/beers/', {name: name, price: price, type: type})
+        httpPost('api/beers/', {nombre: nombre, precio: precio, estilo: estilo})
             .then(fetchbeers)
     }
 
@@ -89,21 +90,26 @@ function Beers () {
                     <div>
                         <form onSubmit={createBeers}>
                             <fieldset>
-                                <legend>Disabled fieldset example</legend>
+                                <legend>Nueva Reseña</legend>
                                 <div className="mb-3">
                                     <label className="form-label">Nombre</label>
-                                    <input type="text" className="form-control" value={name}
-                                           onChange={(e) =>setName(e.target.value)}/>
+                                    <input type="text" className="form-control" value={nombre}
+                                           onChange={(e) =>setNombre(e.target.value)}/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Precio</label>
-                                    <input type="number" className="form-control" value={price}
-                                           onChange={(e) =>setPrice(e.target.value)}/>
+                                    <input type="number" className="form-control" value={precio}
+                                           onChange={(e) =>setPrecio(e.target.value)}/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Estilo</label>
-                                    <input type="text" className="form-control" value={type}
-                                           onChange={(e) =>setType(e.target.value)}/>
+                                    <input type="text" className="form-control" value={estilo}
+                                           onChange={(e) =>setEstilo(e.target.value)}/>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Reseña</label>
+                                    <input type="text" className="form-control" value={reseña}
+                                           onChange={(e) =>setreseña(e.target.value)}/>
                                 </div>
                                 <button type="submit" className="btn btn-primary">Crear Cerveza</button>
                             </fieldset>
