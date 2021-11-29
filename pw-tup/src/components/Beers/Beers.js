@@ -62,7 +62,7 @@ function Beers () {
 
     const createBeers = (e) => {
         e.preventDefault()
-        httpPost('api/beers/', {name: name, price: price, type: type})
+        httpPost('api/beers/', {name: name, price: price, type: type,review: review})
             .then(fetchbeers)
     }
 
@@ -125,10 +125,9 @@ function Beers () {
                                 <div className="product-container">
                                     <img src={pgimg} className="img-product" alt="logo"/>
                                     <h2 className="product-title">{beer.name}</h2>
-                                    <h2 className="product-price">100</h2>
-                                    <label className="product-cantidad">Cantidad</label>
-                                    <input type="number" className="product-box"/>
-                                    <button className="product-button">Descripcion</button>
+                                    <h2 className="product-price">{beer.price}</h2>
+                                    <label>descripcion</label>
+                                    <p>{beer.review}</p>
                                 </div>
                             )
                         })
