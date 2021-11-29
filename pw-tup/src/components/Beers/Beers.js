@@ -17,7 +17,6 @@ function Beers () {
     const [type, setType] = useState([])
     const [review, setreview] = useState([])
 
-    let id = beers.id;
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -64,14 +63,7 @@ function Beers () {
         httpPost('api/beers/', {name: name, price: price, type: type,review: review})
             .then(fetchbeers)
     }
-    const deleteBeer = () =>{
-        httpDelete('api/beers/'+id+"/")
-            .then(fetchbeers)
-    }
-    const modifyRecipe = () =>{
-        httpPut('api/Recipes/'+id+"/", {id: beers.id,name: name, price: price, type: type,review: review})
-            .then(fetchbeers)
-    }
+
 
     useEffect(fetchbeers, [])
 
@@ -139,22 +131,6 @@ function Beers () {
                             )
                         })
                     }
-                </div>
-                <div>
-                    <form onSubmit={deleteBeer}>
-                        <button type="submit" className="bg-black text-white px-2 px-1">
-                            Borrar cerveza
-                        </button>
-                    </form>
-                    <form onSubmit={modifyRecipe}>
-                        <input type="text" id="disabledTextInput" className="form-control" value={review}
-                               onChange={(e) => setreview(e.target.value)}
-                               placeholder="Modificar review"
-                        />
-                        <button type="submit" className="bg-black text-white px-2 px-1">
-                            Modificar review
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
