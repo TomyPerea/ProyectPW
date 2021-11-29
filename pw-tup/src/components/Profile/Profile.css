@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+    margin-left: 5px;
+}
+
+.container-box {
+    background-color: lightgray;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
