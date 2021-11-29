@@ -10,13 +10,18 @@ export const httpGet = async (endpoint) => {
     })
 }
 
-export const httpPost = async (endpoint, data) => {
+export const httpPost = async (endpoint, data, config =
+    {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}) => {
+    return axios.post(baseUrl + endpoint, data, config)
+}
+
+/*export const httpPost = async (endpoint, data) => {
     return axios.post(baseUrl + endpoint, data, { headers: {
             authorization: 'Bearer ' + localStorage.getItem('token')
         }
     })
 
-}
+}*/
 
 export const httpPost2 = async (endpoint, data) => {
     return axios.post(baseUrl + endpoint, data,

@@ -13,9 +13,9 @@ function Beers () {
     const [Rojas, setRojas] = useState(false)
     const [Negras, setNegras] = useState(false)
     const [Beers, setBeers] = useState([])
-    const [nombre, setNombre] = useState([])
-    const [precio, setPrecio] = useState([])
-    const [estilo, setEstilo] = useState([])
+    const [name, setName] = useState([])
+    const [price, setPrice] = useState([])
+    const [type, setType] = useState([])
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -60,7 +60,7 @@ function Beers () {
 
     const createBeers = (e) => {
         e.preventDefault()
-        httpPost('api/beers/', {nombre: nombre, precio: precio, estilo: estilo})
+        httpPost('api/beers/', {name: name, price: price, type: type})
             .then(fetchbeers)
     }
 
@@ -92,18 +92,18 @@ function Beers () {
                                 <legend>Disabled fieldset example</legend>
                                 <div className="mb-3">
                                     <label className="form-label">Nombre</label>
-                                    <input type="text" className="form-control" value={nombre}
-                                           onChange={(e) =>setNombre(e.target.value)}/>
+                                    <input type="text" className="form-control" value={name}
+                                           onChange={(e) =>setName(e.target.value)}/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Precio</label>
-                                    <input type="number" className="form-control" value={precio}
-                                           onChange={(e) =>setPrecio(e.target.value)}/>
+                                    <input type="number" className="form-control" value={price}
+                                           onChange={(e) =>setPrice(e.target.value)}/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Estilo</label>
-                                    <input type="text" className="form-control" value={estilo}
-                                           onChange={(e) =>setEstilo(e.target.value)}/>
+                                    <input type="text" className="form-control" value={type}
+                                           onChange={(e) =>setType(e.target.value)}/>
                                 </div>
                                 <button type="submit" className="btn btn-primary">Crear Cerveza</button>
                             </fieldset>
