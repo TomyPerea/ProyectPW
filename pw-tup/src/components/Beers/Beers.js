@@ -16,6 +16,8 @@ function Beers () {
     const [name, setName] = useState([])
     const [price, setPrice] = useState([])
     const [type, setType] = useState([])
+    const [review, setreview] = useState([])
+
 
     const clickfunction = () => {
         setRubias(!Rubias)
@@ -60,7 +62,7 @@ function Beers () {
 
     const createBeers = (e) => {
         e.preventDefault()
-        httpPost('api/beers/', {name: name, price: price, type: type})
+        httpPost('api/beers/', {name: name, price: price, type: type,review: review})
             .then(fetchbeers)
     }
 
@@ -89,7 +91,7 @@ function Beers () {
                     <div>
                         <form onSubmit={createBeers}>
                             <fieldset>
-                                <legend>Disabled fieldset example</legend>
+                                <legend>Nueva Reseña</legend>
                                 <div className="mb-3">
                                     <label className="form-label">Nombre</label>
                                     <input type="text" className="form-control" value={name}
@@ -105,6 +107,11 @@ function Beers () {
                                     <input type="text" className="form-control" value={type}
                                            onChange={(e) =>setType(e.target.value)}/>
                                 </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Reseña</label>
+                                    <input type="text" className="form-control" value={review}
+                                           onChange={(e) =>setreview(e.target.value)}/>
+                                </div>
                                 <button type="submit" className="btn btn-primary">Crear Cerveza</button>
                             </fieldset>
                         </form>
@@ -118,10 +125,9 @@ function Beers () {
                                 <div className="product-container">
                                     <img src={pgimg} className="img-product" alt="logo"/>
                                     <h2 className="product-title">{beer.name}</h2>
-                                    <h2 className="product-price">100</h2>
-                                    <label className="product-cantidad">Cantidad</label>
-                                    <input type="number" className="product-box"/>
-                                    <button className="product-button">Descripcion</button>
+                                    <h2 className="product-price">{beer.price}</h2>
+                                    <label>descripcion</label>
+                                    <p>{beer.review}</p>
                                 </div>
                             )
                         })
