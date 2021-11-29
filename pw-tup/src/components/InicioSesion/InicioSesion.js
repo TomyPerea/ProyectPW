@@ -11,10 +11,17 @@ const InicioSesion = () => {
 
     const history = useHistory();
 
-    const ingresado=()=>{
+    const logIn=()=>{
         swal.fire({
-            title: 'Ha iniciado sesion correctamente',
+            title: 'Ha iniciado sesión correctamente',
             icon: 'success'}
+        )
+    }
+
+    const logError=()=>{
+        swal.fire({
+            title: 'No se pudo iniciar sesión, intente nuevamente',
+            icon: 'error'}
         )
     }
 
@@ -22,7 +29,10 @@ const InicioSesion = () => {
         e.preventDefault()
         httpPost('api/login/', {username: username, password: password}).then((res) => {
             localStorage.setItem('token', res.data.access)
-            history.push('/')
+            history.push('/profile')
+            logIn();
+        }).catch(() => {
+            logError();
         })
     }
 
