@@ -64,7 +64,6 @@ function Beers () {
             .then(fetchbeers)
     }
 
-
     useEffect(fetchbeers, [])
 
 
@@ -127,6 +126,7 @@ function Beers () {
                                     <h2 className="product-price">{beer.price}</h2>
                                     <label>descripcion</label>
                                     <p>{beer.review}</p>
+                                    <button type={"submit"}>delete</button>
                                 </div>
                             )
                         })
