@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Beers from "./components/Beers/Beers";
-import Nosotros from "./components/Nosotros";
 import InicioSesion from "./components/InicioSesion/InicioSesion";
 import Registrarme from "./components/Registrarme";
 import Profile from "./components/Profile/Profile";
@@ -21,9 +20,6 @@ function App() {
           <Switch>
             <Route path="">
               <Navbar />
-              <Route path="/nosotros">
-                <Nosotros />
-              </Route>
               <Route path="/beers">
                 <Beers />
               </Route>
