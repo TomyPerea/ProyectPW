@@ -28,7 +28,7 @@ function Beers () {
         setRojas(!Rojas)
     }
 
-    let finalbeers = Beers;
+    let finalbeers;
     if (Rubias) {
         finalbeers = Beers.filter((beer) => {
             return beer.type === "rubia"
@@ -121,22 +121,22 @@ function Beers () {
                                     <legend>Nueva Reseña</legend>
                                     <div className="mb-3">
                                         <label className="form-label">Nombre</label>
-                                        <input type="text" className="form-control" value={name}
+                                        <input type="text" className="form-control" value={name} placeholder="Nombre"
                                                onChange={(e) =>setName(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Precio</label>
-                                        <input type="number" className="form-control" value={price}
+                                        <input type="number" className="form-control" value={price} placeholder="Precio de referencia"
                                                onChange={(e) =>setPrice(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Estilo</label>
-                                        <input type="text" className="form-control" value={type}
+                                        <input type="text" className="form-control" value={type} placeholder="rubia, roja o negra"
                                                onChange={(e) =>setType(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Reseña</label>
-                                        <input type="text" className="form-control" value={review}
+                                        <input type="text" className="form-control" value={review} placeholder="Opinion de la birra"
                                                onChange={(e) =>setreview(e.target.value)}/>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Crear Cerveza</button>
@@ -167,11 +167,11 @@ function Beers () {
                 </div>
                 <div>
                     <form action="">
-                        <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id}/>
-                        <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}/>
-                        <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}/>
-                        <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}/>
-                        <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}/>
+                        <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
+                        <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}placeholder="Nombre"/>
+                        <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}placeholder="Precio"/>
+                        <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}placeholder="roja, rubia o negra"/>
+                        <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}placeholder="Modificar descripcion"/>
                         <button onClick={(e)=>{
                             e.preventDefault();
                             httpGet('api/beers/'+cerveza.id+"/")
