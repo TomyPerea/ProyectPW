@@ -19,6 +19,7 @@ const Profile = () => {
       <h3 className="profile-data">Mi correo es {userData.email}</h3>
       <h3 className="profile-data">Mi nombre de usuario es {userData.username}</h3>
     </div>
+    </div>
 }
 
-export default Profile;
+export default Profile
