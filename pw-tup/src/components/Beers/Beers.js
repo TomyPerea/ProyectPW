@@ -16,6 +16,8 @@ function Beers () {
     const [price, setPrice] = useState([])
     const [type, setType] = useState([])
     const [review, setreview] = useState([])
+    /*const [resenia, setResenia] = useState();*/
+
 
 
     const clickfunction = () => {
@@ -78,9 +80,18 @@ function Beers () {
         setId(event.target.value);
     };
 
+   /* const handleIdChange1 = (event) => {
+        setId(event.target.value);
+    };
+
+    const modifyBeer = () => {
+        httpPut('api/beers/'+id+"/",{id: id, name: name, price: price, type: type, review: review})
+            .then(fetchbeers)
+    }*/
 
 
-   /* const handleNombreChange = (event) => {
+
+    /*const handleNombreChange = (event) => {
         setCerveza({ ...cerveza, name: event.target.value });
     };
 
@@ -90,12 +101,11 @@ function Beers () {
 
     const handleEstiloChange = (event) => {
         setCerveza({ ...cerveza, id: event.target.value });
-    };
+    };*/
 
-    const handleReseniaChange = (event) => {
+/*    const handleReseniaChange = (event) => {
         setCerveza({ ...cerveza, id: event.target.value });
-    };
-*/
+    };*/
 
     useEffect(fetchbeers, [])
 
@@ -185,7 +195,7 @@ function Beers () {
                             e.preventDefault();
                             httpDelete('api/beers/'+id+"/")
                                 .then(fetchbeers)
-                        }}></button>
+                        }}>Eliminar</button>
                     </form>
                 </div>
             </div>
