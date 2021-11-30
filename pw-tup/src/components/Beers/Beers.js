@@ -8,9 +8,9 @@ const axios = require('axios');
 
 function Beers () {
 
-    const [Rubias, setRubias] = useState(false)
+    /*const [Rubias, setRubias] = useState(false)
     const [Rojas, setRojas] = useState(false)
-    const [Negras, setNegras] = useState(false)
+    const [Negras, setNegras] = useState(false)*/
     const [Beers, setBeers] = useState([])
     const [name, setName] = useState([])
     const [price, setPrice] = useState([])
@@ -18,7 +18,7 @@ function Beers () {
     const [review, setreview] = useState([])
 
 
-    const clickfunction = () => {
+    /*const clickfunction = () => {
         setRubias(!Rubias)
     }
     const negrasfilter = () => {
@@ -26,10 +26,10 @@ function Beers () {
     }
     const redfilter = () => {
         setRojas(!Rojas)
-    }
+    }*/
 
-    let finalbeers;
-    if (Rubias) {
+    let finalbeers = Beers;
+    /*if (Rubias) {
         finalbeers = Beers.filter((beer) => {
             return beer.type === "rubia"
         })
@@ -43,16 +43,16 @@ function Beers () {
         })
     } else {
         finalbeers = Beers
-    }
+    }*/
 
-    function myFunction() {
+    /*function myFunction() {
         let x = document.getElementById("myDIV");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
-    }
+    }*/
     
 
     const fetchbeers = () => {
@@ -68,35 +68,32 @@ function Beers () {
             .then(fetchbeers)
     }
 
-    const [id, setId] = useState();
-   /* const [nombre, setNombre] = useState();
-    const [precio, setPrecio] = useState();
-    const [estilo, setEstilo] = useState();
-    const [resenia, setResenia] = useState();
-    */
+    const [cerveza, setCerveza] = useState();
+
+
 
     const handleIdChange = (event) => {
-        setId(event.target.value);
+        setCerveza({ ...cerveza, id: event.target.value });
     };
-   /* const handleNombreChange = (event) => {
+    const handleNombreChange = (event) => {
         setCerveza({ ...cerveza, name: event.target.value });
     };
 
     const handlePrecioChange = (event) => {
-        setCerveza({ ...cerveza, type: event.target.value });
+        setCerveza({ ...cerveza, price: event.target.value });
     };
 
     const handleEstiloChange = (event) => {
-        setCerveza({ ...cerveza, id: event.target.value });
+        setCerveza({ ...cerveza, type: event.target.value });
     };
 
     const handleReseniaChange = (event) => {
-        setCerveza({ ...cerveza, id: event.target.value });
+        setCerveza({ ...cerveza, review: event.target.value });
     };
-*/
+
 
     useEffect(fetchbeers, [])
-    useEffect(myFunction)
+    /*useEffect(myFunction)*/
 
     return (
         <div>
@@ -105,7 +102,7 @@ function Beers () {
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
                 </div>
                 <div className="botones-container">
-                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
+                    {/*<button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
                     <div className="x" id="myDIV">
                         <div>
                             <input type="checkbox" className="item-type" onClick={clickfunction}/>Rubias
@@ -116,36 +113,37 @@ function Beers () {
                         <div>
                             <input type="checkbox" className="item-type" onClick={redfilter}/>Rojas
                         </div>
+                    </div>*/}
+
+                        <div>
+                            <form onSubmit={createBeers}>
+                                <fieldset>
+                                    <legend>Nueva Reseña</legend>
+                                    <div className="mb-3">
+                                        <label className="form-label">Nombre</label>
+                                        <input type="text" className="form-control" value={name}
+                                               onChange={(e) =>setName(e.target.value)}/>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Precio</label>
+                                        <input type="number" className="form-control" value={price}
+                                               onChange={(e) =>setPrice(e.target.value)}/>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Estilo</label>
+                                        <input type="text" className="form-control" value={type}
+                                               onChange={(e) =>setType(e.target.value)}/>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Reseña</label>
+                                        <input type="text" className="form-control" value={review}
+                                               onChange={(e) =>setreview(e.target.value)}/>
+                                    </div>
+                                    <button type="submit" className="btn btn-primary">Crear Cerveza</button>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <form onSubmit={createBeers}>
-                            <fieldset>
-                                <legend>Nueva Reseña</legend>
-                                <div className="mb-3">
-                                    <label className="form-label">Nombre</label>
-                                    <input type="text" className="form-control" value={name}
-                                           onChange={(e) =>setName(e.target.value)}/>
-                                </div>
-                                <div className="mb-3">
-                                    <label className="form-label">Precio</label>
-                                    <input type="number" className="form-control" value={price}
-                                           onChange={(e) =>setPrice(e.target.value)}/>
-                                </div>
-                                <div className="mb-3">
-                                    <label className="form-label">Estilo</label>
-                                    <input type="text" className="form-control" value={type}
-                                           onChange={(e) =>setType(e.target.value)}/>
-                                </div>
-                                <div className="mb-3">
-                                    <label className="form-label">Reseña</label>
-                                    <input type="text" className="form-control" value={review}
-                                           onChange={(e) =>setreview(e.target.value)}/>
-                                </div>
-                                <button type="submit" className="btn btn-primary">Crear Cerveza</button>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
 
                 <div className="products-container">
                     {
@@ -169,21 +167,26 @@ function Beers () {
                 </div>
                 <div>
                     <form action="">
-                        <input type="number" onChange={handleIdChange} defaultValue={id}/>
-                        {/*<input type="text" onChange={handleIdChange} defaultValue={}/>
-                        <input type="number" onChange={handleIdChange} defaultValue={id}/>
-                        <input type="text" onChange={handleIdChange} defaultValue={id}/>
-                        <input type="text" onChange={handleIdChange} defaultValue={id}/>*/}
-                       {/* <button onClick={(e)=>{
-                            e.preventDefault();
-                            httpGet('api/beers/')
-                                .then((res) => setBeers(res.data))
-                        }}></button>*/}
+                        <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id}/>
+                        <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}/>
+                        <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}/>
+                        <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}/>
+                        <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}/>
                         <button onClick={(e)=>{
                             e.preventDefault();
-                            httpDelete('api/beers/'+id+"/")
+                            httpGet('api/beers/'+cerveza.id+"/")
+                                .then((res) => setCerveza(res.data))
+                        }}>Buscar</button>
+                        <button onClick={(e)=>{
+                            e.preventDefault();
+                            httpPut('api/beers/' + cerveza.id + "/", cerveza)
+                                .then(window.location.reload());
+                        }}>Modificar</button>
+                        <button onClick={(e)=>{
+                            e.preventDefault();
+                            httpDelete('api/beers/'+cerveza.id+"/")
                                 .then(fetchbeers)
-                        }}></button>
+                        }}>Eliminar</button>
                     </form>
                 </div>
             </div>
