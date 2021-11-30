@@ -27,6 +27,7 @@ function Beers () {
     const redfilter = () => {
         setRojas(!Rojas)
     }
+
     let finalbeers;
     if (Rubias) {
         finalbeers = Beers.filter((beer) => {
@@ -58,11 +59,43 @@ function Beers () {
             .then((res) => setBeers(res.data))
     }
 
+
+
     const createBeers = (e) => {
         e.preventDefault()
         httpPost('api/beers/', {name: name, price: price, type: type,review: review})
             .then(fetchbeers)
     }
+
+    const [id, setId] = useState();
+   /* const [nombre, setNombre] = useState();
+    const [precio, setPrecio] = useState();
+    const [estilo, setEstilo] = useState();
+    const [resenia, setResenia] = useState();
+    */
+
+    const handleIdChange = (event) => {
+        setId(event.target.value);
+    };
+
+
+
+   /* const handleNombreChange = (event) => {
+        setCerveza({ ...cerveza, name: event.target.value });
+    };
+
+    const handlePrecioChange = (event) => {
+        setCerveza({ ...cerveza, type: event.target.value });
+    };
+
+    const handleEstiloChange = (event) => {
+        setCerveza({ ...cerveza, id: event.target.value });
+    };
+
+    const handleReseniaChange = (event) => {
+        setCerveza({ ...cerveza, id: event.target.value });
+    };
+*/
 
     useEffect(fetchbeers, [])
 
@@ -119,18 +152,41 @@ function Beers () {
                 <div className="products-container">
                     {
                         finalbeers.map((beer) => {
+
                             return (
                                 <div className="product-container">
+                                    <form>
                                     <img src={pgimg} className="img-product" alt="logo"/>
                                     <h2 className="product-title">{beer.name}</h2>
                                     <h2 className="product-price">{beer.price}</h2>
+                                    <h2>{beer.id}</h2>
                                     <label>descripcion</label>
                                     <p>{beer.review}</p>
-                                    <button type={"submit"}>delete</button>
+                                    {/*<button type="submit">delete</button>*/}
+                                </form>
                                 </div>
                             )
                         })
                     }
+                </div>
+                <div>
+                    <form action="">
+                        <input type="number" onChange={handleIdChange} defaultValue={id}/>
+                        {/*<input type="text" onChange={handleIdChange} defaultValue={}/>
+                        <input type="number" onChange={handleIdChange} defaultValue={id}/>
+                        <input type="text" onChange={handleIdChange} defaultValue={id}/>
+                        <input type="text" onChange={handleIdChange} defaultValue={id}/>*/}
+                       {/* <button onClick={(e)=>{
+                            e.preventDefault();
+                            httpGet('api/beers/')
+                                .then((res) => setBeers(res.data))
+                        }}></button>*/}
+                        <button onClick={(e)=>{
+                            e.preventDefault();
+                            httpDelete('api/beers/'+id+"/")
+                                .then(fetchbeers)
+                        }}></button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -33,3 +33,4 @@ export const httpDelete = async (endpoint) => {
         }
     })
 }
+
