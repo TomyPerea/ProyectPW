@@ -11,6 +11,7 @@ import Beers from "./components/Beers/Beers";
 import InicioSesion from "./components/InicioSesion/InicioSesion";
 import Registrarme from "./components/Registrarme";
 import Profile from "./components/Profile/Profile";
+import PagInicio from "./components/PagInicio";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Switch>
             <Route path="">
               <Navbar />
+              <PagInicio />
               <Route path="/beers">
                 <Beers />
               </Route>
