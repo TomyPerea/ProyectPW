@@ -8,9 +8,9 @@ const axios = require('axios');
 
 function Beers () {
 
-    /*const [Rubias, setRubias] = useState(false)
+    const [Rubias, setRubias] = useState(false)
     const [Rojas, setRojas] = useState(false)
-    const [Negras, setNegras] = useState(false)*/
+    const [Negras, setNegras] = useState(false)
     const [Beers, setBeers] = useState([])
     const [name, setName] = useState([])
     const [price, setPrice] = useState([])
@@ -18,7 +18,7 @@ function Beers () {
     const [review, setreview] = useState([])
 
 
-    /*const clickfunction = () => {
+    const clickfunction = () => {
         setRubias(!Rubias)
     }
     const negrasfilter = () => {
@@ -26,10 +26,10 @@ function Beers () {
     }
     const redfilter = () => {
         setRojas(!Rojas)
-    }*/
+    }
 
     let finalbeers = Beers;
-    /*if (Rubias) {
+    if (Rubias) {
         finalbeers = Beers.filter((beer) => {
             return beer.type === "rubia"
         })
@@ -43,16 +43,16 @@ function Beers () {
         })
     } else {
         finalbeers = Beers
-    }*/
+    }
 
-    /*function myFunction() {
+    function myFunction() {
         let x = document.getElementById("myDIV");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
-    }*/
+    }
     
 
     const fetchbeers = () => {
@@ -102,7 +102,7 @@ function Beers () {
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
                 </div>
                 <div className="botones-container">
-                    {/*<button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
+                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
                     <div className="x" id="myDIV">
                         <div>
                             <input type="checkbox" className="item-type" onClick={clickfunction}/>Rubias
@@ -113,7 +113,7 @@ function Beers () {
                         <div>
                             <input type="checkbox" className="item-type" onClick={redfilter}/>Rojas
                         </div>
-                    </div>*/}
+                    </div>
 
                         <div>
                             <form onSubmit={createBeers}>
@@ -156,7 +156,7 @@ function Beers () {
                                     <h2 className="product-title">{beer.name}</h2>
                                     <h2 className="product-price">{beer.price}</h2>
                                     <h2>{beer.id}</h2>
-                                    <label>descripcion</label>
+                                    <label>Descripcion</label>
                                     <p>{beer.review}</p>
                                     {/*<button type="submit">delete</button>*/}
                                 </form>
