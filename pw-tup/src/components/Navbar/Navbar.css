@@ -17,6 +17,14 @@ li, a, button {
     cursor: pointer;
 }
 
+.logo {
+   transition: transform .8s;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
 .navbar {
     list-style: none;
 }

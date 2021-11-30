@@ -1,5 +1,5 @@
 import "./Beers.css";
-import pgimg from "../../images/logo1.png";
+import pgimg from "../../images/cerveza.png";
 import {useEffect, useState} from "react";
 import {httpGet, httpPost} from "../../Utils/httpFunctions";
 import {httpPut,httpDelete} from "../../Utils/httpFunctions";
