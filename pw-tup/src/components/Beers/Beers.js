@@ -53,6 +53,7 @@ function Beers () {
             x.style.display = "none";
         }
     }
+    
 
     const fetchbeers = () => {
         httpGet('api/beers/')
@@ -77,9 +78,6 @@ function Beers () {
     const handleIdChange = (event) => {
         setId(event.target.value);
     };
-
-
-
    /* const handleNombreChange = (event) => {
         setCerveza({ ...cerveza, name: event.target.value });
     };
@@ -98,7 +96,7 @@ function Beers () {
 */
 
     useEffect(fetchbeers, [])
-
+    useEffect(myFunction)
 
     return (
         <div>
