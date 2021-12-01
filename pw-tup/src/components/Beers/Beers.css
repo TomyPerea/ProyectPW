@@ -17,11 +17,13 @@
     height: 80px;
 }
 
+/*
 .background-img {
     background: url(../../images/okey.jpg) no-repeat center center fixed;
     background-size: auto;
     max-height: 100%;
 }
+*/
 
 .red-title {
     font-family: 'Montserrat', sans-serif;
@@ -34,12 +36,18 @@
 .product-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    text-align: center;
+    background-color: white;
     border-radius: 18px;
     border: 1px solid black;
     width: 250px;
-    height: 330px;
+    height: 400px;
     margin: 20px;
+    padding: 20px;
+}
+
+.idbeer {
+    font-size: 15px;
 }
 
 .img-product {
@@ -65,9 +73,9 @@
 }
 
 .product-price {
-    display: flex;
+    display: block;
+    margin: auto;
     border: 1px solid black;
-    margin: 3px;
     font-size: 15px;
     width: 60px;
     text-align: center;

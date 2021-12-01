@@ -96,7 +96,7 @@ function Beers () {
     /*useEffect(myFunction)*/
 
     return (
-        <div className="background-img">
+        <div className="backgroundColor">
             <div>
                 <div className="blondes-container">
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
@@ -151,11 +151,11 @@ function Beers () {
 
                             return (
                                 <div className="product-container">
-                                    <form>
+                                    <form className="centrar">
                                     <img src={pgimg} className="img-product" alt="logo"/>
                                     <h2 className="product-title">{beer.name}</h2>
                                     <h2 className="product-price">{beer.price}</h2>
-                                    <h2>{beer.id}</h2>
+                                    <h2 className="idbeer">{beer.id}</h2>
                                     <label>Descripcion</label>
                                     <p>{beer.review}</p>
                                     {/*<button type="submit">delete</button>*/}

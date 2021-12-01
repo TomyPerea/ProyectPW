@@ -16,9 +16,10 @@
     padding: 30px;
 }
 
-.background-img {
-    background: url(../../images/okey.jpg) no-repeat center center fixed;
-    background-size: cover;
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profile-data {

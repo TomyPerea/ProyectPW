@@ -1,13 +1,15 @@
 import "./PagInicio.css"
 import React from "react";
-import pgimg from "../images/logo1.png";
-import pgimg1 from "../images/patagonias.png";
-import pgimg2 from "../images/247.png";
+import pgimg from "../images/cervezas.png";
+import pgimg1 from "../images/pintas.jpeg";
+import pgimg2 from "../images/okey.jpg";
 
 function PagInicio () {
 
     return (
-        <div className="carousel-img">
+        <div className="backgroundColor">
+            <h1 className="home-title">¡Bienvenidos a BeerBoys!</h1>
+        <div className="carousel-img centrar">
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
@@ -30,6 +32,18 @@ function PagInicio () {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
+            </div>
+        </div>
+            <div>
+            <h2 className="home-subtitle">Registrate para acceder al foro de cervezas mas grande del pais!</h2>
+            <p className="home-texto">Bienvenidos,
+                este foro es un lugar para los amantes de la cerveza,para que los entusiastas del sabor amargo
+                pero agradable de una buena fresca, vengan  a dejar sus recomendaciones para el mejor acompañiamiento de
+                una pizza, una picada, una charla con amigos, un partido de futbol, un asado, unos sanguchitos y para ser honesto,
+                de todas las cosas lindas.
+                Pasa y descubri, la adecuada para vos. Ya sea roja, negra o rubia, Artesanal o industrial, suave o fuerte.
+                Veni mira y comparti opiniones sobre "birras" internacionales o nacionales.
+                No te molesto mas, entra y tentate, de una buena cerveza.</p>
             </div>
         </div>
     )

@@ -39,9 +39,9 @@ const InicioSesion = () => {
     return (
       <div className="login">
           <div>
-              <h1>Registrate para poder realizar compras</h1>
+              <h1>Registrate para poder realizar y mirar las reseñas!</h1>
           </div>
-          <div className="form-container1 center">
+          <div className="form-container1 centrar">
               <form className="form-horizontal" onSubmit={login}>
                   <div className="form-group">
                       <label htmlFor="inputEmail3" className="col-sm-2 control-label">Username</label>
