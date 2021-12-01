@@ -18,11 +18,11 @@ function App() {
   return (
       <Router>
         <div>
+          <Navbar />
           <Switch>
-            <Route path="">
-              <Navbar />
+            <Route path="/" exact={true}>
               <PagInicio />
-              <Route path="/beers">
+              <Route path="/beers" exact={true}>
                 <Beers />
               </Route>
               <Route path="/signin">
