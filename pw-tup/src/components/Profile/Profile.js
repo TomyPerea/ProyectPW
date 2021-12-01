@@ -27,7 +27,7 @@ const Profile = () => {
   useEffect(fetchUser, [])
 
   return (
-      <div>
+      <div className="background-img">
         <h2 className="profile-title">Hola! Este es mi perfil</h2>
         <div className="profile-container contenedor">
             <h3 className="profile-data">Mi nombre y apellido es {userData.first_name} {userData.last_name}</h3>

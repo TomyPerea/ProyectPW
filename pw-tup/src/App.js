@@ -22,19 +22,19 @@ function App() {
           <Switch>
             <Route path="/" exact={true}>
               <PagInicio />
+            </Route>
               <Route path="/beers" exact={true}>
                 <Beers />
               </Route>
-              <Route path="/signin">
+              <Route path="/signin" exact={true}>
                 <InicioSesion />
               </Route>
-              <Route path="/registrarme">
+              <Route path="/registrarme" exact={true}>
                 <Registrarme />
               </Route>
-              <Route path="/profile">
+              <Route path="/profile" exact={true}>
                 <Profile />
               </Route>
-            </Route>
           </Switch>
         </div>
       </Router>

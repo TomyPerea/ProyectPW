@@ -16,6 +16,10 @@
     padding: 30px;
 }
 
+.background-img {
+    background: url(../../images/okey.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
 
 .profile-data {
     text-align: center;

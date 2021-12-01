@@ -96,7 +96,7 @@ function Beers () {
     /*useEffect(myFunction)*/
 
     return (
-        <div>
+        <div className="background-img">
             <div>
                 <div className="blondes-container">
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
