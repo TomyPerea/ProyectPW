@@ -115,33 +115,76 @@ function Beers () {
                         </div>
                     </div>
 
-                        <div>
-                            <form onSubmit={createBeers}>
-                                <fieldset>
-                                    <legend>Nueva Reseña</legend>
-                                    <div className="mb-3">
-                                        <label className="form-label">Nombre</label>
-                                        <input type="text" className="form-control" value={name} placeholder="Nombre"
-                                               onChange={(e) =>setName(e.target.value)}/>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">Precio</label>
-                                        <input type="number" className="form-control" value={price} placeholder="Precio de referencia"
-                                               onChange={(e) =>setPrice(e.target.value)}/>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">Estilo</label>
-                                        <input type="text" className="form-control" value={type} placeholder="rubia, roja o negra"
-                                               onChange={(e) =>setType(e.target.value)}/>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">Reseña</label>
-                                        <input type="text" className="form-control" value={review} placeholder="Opinion de la birra"
-                                               onChange={(e) =>setreview(e.target.value)}/>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary">Crear Cerveza</button>
-                                </fieldset>
-                            </form>
+                        <div className="container">
+                            <div className="row">
+                                <form onSubmit={createBeers} className="col-lg-6">
+                                    <fieldset>
+                                        <legend>Nueva Reseña</legend>
+                                        <div className="mb-3">
+                                            <label className="form-label">Nombre</label>
+                                            <input type="text" className="form-control" value={name} placeholder="Nombre"
+                                                   onChange={(e) =>setName(e.target.value)}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label">Precio</label>
+                                            <input type="number" className="form-control" value={price} placeholder="Precio de referencia"
+                                                   onChange={(e) =>setPrice(e.target.value)}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label">Estilo</label>
+                                            <input type="text" className="form-control" value={type} placeholder="rubia, roja o negra"
+                                                   onChange={(e) =>setType(e.target.value)}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label">Reseña</label>
+                                            <input type="text" className="form-control" value={review} placeholder="Opinion de la birra"
+                                                   onChange={(e) =>setreview(e.target.value)}/>
+                                        </div>
+                                        <button type="submit" className="btn btn-primary">Crear Cerveza</button>
+                                    </fieldset>
+                                </form>
+                                <div  className="col-lg-6">
+                                    <form action="">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
+                                                <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}placeholder="Nombre"/>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}placeholder="Precio"/>
+                                                <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}placeholder="roja, rubia o negra"/>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}placeholder="Modificar descripcion"/>
+                                            </div>
+                                        </div>
+                                        <div className="container">
+                                            <div className="col-lg-12">
+                                                <button onClick={(e)=>{
+                                                    e.preventDefault();
+                                                    httpGet('api/beers/'+cerveza.id+"/")
+                                                        .then((res) => setCerveza(res.data))
+                                                }}>Buscar</button>
+                                                <button onClick={(e)=>{
+                                                    e.preventDefault();
+                                                    httpPut('api/beers/' + cerveza.id + "/", cerveza)
+                                                        .then(window.location.reload());
+                                                }}>Modificar</button>
+                                                <button onClick={(e)=>{
+                                                    e.preventDefault();
+                                                    httpDelete('api/beers/'+cerveza.id+"/")
+                                                        .then(fetchbeers)
+                                                }}>Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -165,29 +208,8 @@ function Beers () {
                         })
                     }
                 </div>
-                <div>
-                    <form action="">
-                        <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
-                        <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}placeholder="Nombre"/>
-                        <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}placeholder="Precio"/>
-                        <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}placeholder="roja, rubia o negra"/>
-                        <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}placeholder="Modificar descripcion"/>
-                        <button onClick={(e)=>{
-                            e.preventDefault();
-                            httpGet('api/beers/'+cerveza.id+"/")
-                                .then((res) => setCerveza(res.data))
-                        }}>Buscar</button>
-                        <button onClick={(e)=>{
-                            e.preventDefault();
-                            httpPut('api/beers/' + cerveza.id + "/", cerveza)
-                                .then(window.location.reload());
-                        }}>Modificar</button>
-                        <button onClick={(e)=>{
-                            e.preventDefault();
-                            httpDelete('api/beers/'+cerveza.id+"/")
-                                .then(fetchbeers)
-                        }}>Eliminar</button>
-                    </form>
+                <div className="container">
+
                 </div>
             </div>
         </div>

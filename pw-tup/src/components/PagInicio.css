@@ -25,9 +25,14 @@
 .home-texto {
     font-size: 20px;
     text-align: center;
-    padding: 15px;
+    padding: 0px;
 }
 
 .backgroundColor {
     background-color: lightgray;
+}
+
+.footer {
+    text-align: center;
+    color: #716b6b;
 }
