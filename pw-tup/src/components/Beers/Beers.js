@@ -105,7 +105,8 @@ function Beers () {
                     <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
                     <div className="x" id="myDIV">
                         <div>
-                            <input type="checkbox" className="item-type" onClick={clickfunction}/>Rubias
+                            <input type="checkbox" className="item-type" onClick={() => {httpGet('api/beers/?type=rubia')
+                                .then((res) => setBeers(res.data))}}/>Rubias
                         </div>
                         <div>
                             <input type="checkbox" className="item-type" onClick={negrasfilter}/>Negras
