@@ -12,7 +12,6 @@ from api.serializers import BeersSerializer, RegisterSerializer, MeSerializer
 
 class BeersViewSet(viewsets.ModelViewSet):
     serializer_class = BeersSerializer
-    queryset = Beers.objects.all()
 
     def get_permissions(self):
         if self.action == 'create':
@@ -20,6 +19,16 @@ class BeersViewSet(viewsets.ModelViewSet):
         else:
             self.permission_classes = []
         return super(BeersViewSet, self).get_permissions()
+
+    def get_queryset(self):
+        if self.request.method == "GET":
+            queryset = Beers.objects.all()
+            tipo = self.request.query_params.get('type')
+            if tipo is not None:
+                queryset = queryset.filter(type=tipo)
+            return queryset
+
+
 
 
 class RegisterView(generics.CreateAPIView):
