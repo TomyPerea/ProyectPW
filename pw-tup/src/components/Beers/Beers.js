@@ -105,14 +105,19 @@ function Beers () {
                     <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
                     <div className="x" id="myDIV">
                         <div>
-                            <input type="checkbox" className="item-type" onClick={() => {httpGet('api/beers/?type=rubia')
-                                .then((res) => setBeers(res.data))}}/>Rubias
+                            <button className="item-type" onClick={() => {httpGet('api/beers/?type=rubia')
+                                .then((res) => setBeers(res.data))}}>Rubias</button>
                         </div>
                         <div>
-                            <input type="checkbox" className="item-type" onClick={negrasfilter}/>Negras
+                            <button className="item-type" onClick={() => {httpGet('api/beers/?type=negra')
+                                .then((res) => setBeers(res.data))}}>Negras</button>
                         </div>
                         <div>
-                            <input type="checkbox" className="item-type" onClick={redfilter}/>Rojas
+                            <button className="item-type" onClick={() => {httpGet('api/beers/?type=roja')
+                                .then((res) => setBeers(res.data))}}>Rojas</button>
+                        </div>
+                        <div>
+                            <button onClick={fetchbeers}>Todas</button>
                         </div>
                     </div>
 
