@@ -18,15 +18,15 @@ function Beers () {
     const [review, setreview] = useState([])
 
 
-    const clickfunction = () => {
-        setRubias(!Rubias)
-    }
-    const negrasfilter = () => {
-        setNegras(!Negras)
-    }
-    const redfilter = () => {
-        setRojas(!Rojas)
-    }
+    // const clickfunction = () => {
+    //     setRubias(!Rubias)
+    // }
+    // const negrasfilter = () => {
+    //     setNegras(!Negras)
+    // }
+    // const redfilter = () => {
+    //     setRojas(!Rojas)
+    // }
 
     let finalbeers;
     if (Rubias) {
