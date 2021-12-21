@@ -18,15 +18,15 @@ function Beers () {
     const [review, setreview] = useState([])
 
 
-    // const clickfunction = () => {
-    //     setRubias(!Rubias)
-    // }
-    // const negrasfilter = () => {
-    //     setNegras(!Negras)
-    // }
-    // const redfilter = () => {
-    //     setRojas(!Rojas)
-    // }
+    const clickfunction = () => {
+        setRubias(!Rubias)
+    }
+    const negrasfilter = () => {
+        setNegras(!Negras)
+    }
+    const redfilter = () => {
+        setRojas(!Rojas)
+    }
 
     let finalbeers;
     if (Rubias) {
@@ -178,7 +178,7 @@ function Beers () {
                                                 <button onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpPut('api/beers/' + cerveza.id + "/", cerveza)
-                                                        .then(window.location.reload());
+                                                        .then(window.location.reload);
                                                 }}>Modificar</button>
                                                 <button onClick={(e)=>{
                                                     e.preventDefault();

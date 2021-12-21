@@ -22,8 +22,7 @@ class BeersViewSet(viewsets.ModelViewSet):
         return super(BeersViewSet, self).get_permissions()
 
     def get_queryset(self):
-        if self.request.method == "GET":
-            queryset = Beers.objects.all()
+            queryset = self.queryset.all()
             tipo = self.request.query_params.get('type')
             if tipo is not None:
                 queryset = queryset.filter(type=tipo)
@@ -39,3 +38,4 @@ class RegisterView(generics.CreateAPIView):
 def me(request):
     print(MeSerializer(request.user).data)
     return Response(MeSerializer(request.user).data, 200)
+
