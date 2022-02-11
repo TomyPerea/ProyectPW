@@ -47,9 +47,6 @@ function Burgers () {
                         )
                     })
                 }
-
-
-
         </div>
 
     )

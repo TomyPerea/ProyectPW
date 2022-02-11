@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db.migrations import serializer
 from rest_framework import serializers
 
-from api.models import Beers
+from api.models import Beers, Burgers
 
 
 class BeersSerializer(serializers.ModelSerializer):
@@ -13,6 +13,16 @@ class BeersSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         beer = super(BeersSerializer, self).create(validated_data)
         return beer
+
+
+class BurgersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Burgers
+        fields = "__all__"
+
+    def create(self, validated_data):
+        burger = super(BurgersSerializer, self).create(validated_data)
+        return burger
 
 
 class RegisterSerializer(serializers.ModelSerializer):

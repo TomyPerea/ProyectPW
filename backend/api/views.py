@@ -6,8 +6,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from api.models import Beers
-from api.serializers import BeersSerializer, RegisterSerializer, MeSerializer
+from api.models import Beers, Burgers
+from api.serializers import BeersSerializer, RegisterSerializer, MeSerializer, BurgersSerializer
 
 
 class BeersViewSet(viewsets.ModelViewSet):
@@ -27,6 +27,18 @@ class BeersViewSet(viewsets.ModelViewSet):
             if tipo is not None:
                 queryset = queryset.filter(type=tipo)
             return queryset
+
+
+class BurgersViewSet(viewsets.ModelViewSet):
+    serializer_class = BurgersSerializer
+    queryset = Burgers.objects.all()
+
+    def get_permissions(self):
+        if self.action == 'create':
+            self.permission_classes = [IsAuthenticated]
+        else:
+            self.permission_classes = []
+        return super(BurgersViewSet, self).get_permissions()
 
 
 class RegisterView(generics.CreateAPIView):
