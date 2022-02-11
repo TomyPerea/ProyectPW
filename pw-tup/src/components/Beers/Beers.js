@@ -18,7 +18,7 @@ function Beers () {
     const [review, setreview] = useState([])
 
 
-    const clickfunction = () => {
+    /*const clickfunction = () => {
         setRubias(!Rubias)
     }
     const negrasfilter = () => {
@@ -27,7 +27,7 @@ function Beers () {
     const redfilter = () => {
         setRojas(!Rojas)
     }
-
+*/
     let finalbeers;
     if (Rubias) {
         finalbeers = Beers.filter((beer) => {
@@ -193,22 +193,20 @@ function Beers () {
 
                         </div>
                     </div>
-
                 <div className="products-container">
                     {
                         finalbeers.map((beer) => {
-
                             return (
                                 <div className="product-container">
                                     <form className="centrar">
-                                    <img src={pgimg} className="img-product" alt="logo"/>
-                                    <h2 className="product-title">{beer.name}</h2>
-                                    <h2 className="product-price">{beer.price}</h2>
-                                    <h2 className="idbeer">{beer.id}</h2>
-                                    <label>Descripcion</label>
-                                    <p>{beer.review}</p>
-                                    {/*<button type="submit">delete</button>*/}
-                                </form>
+                                        <img src={pgimg} className="img-product" alt="logo"/>
+                                        <h2 className="product-title">{beer.name}</h2>
+                                        <h2 className="product-price">{beer.price}</h2>
+                                        <h2 className="idbeer">{beer.id}</h2>
+                                        <label>Descripcion</label>
+                                        <p>{beer.review}</p>
+                                        {/*<button type="submit">delete</button>*/}
+                                    </form>
                                 </div>
                             )
                         })

@@ -15,6 +15,7 @@ const Navbar = () => {
                             <ul className="navbar">
                                 <Link to={'/'}><li>Inicio</li></Link>
                                 <Link to={'/beers'}><li>Cervezas</li></Link>
+                                <Link to={'/burgers'}><li>Hamburguesas</li></Link>
                                 <Link to={'/profile'}><li>Mi perfil</li></Link>
                             </ul>
                         </nav>

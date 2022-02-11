@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  /*Link*/
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Beers from "./components/Beers/Beers";
@@ -12,6 +12,7 @@ import InicioSesion from "./components/InicioSesion/InicioSesion";
 import Registrarme from "./components/Registrarme";
 import Profile from "./components/Profile/Profile";
 import PagInicio from "./components/PagInicio";
+import Burgers from "./components/Burgers/Burgers";
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
               </Route>
               <Route path="/registrarme" exact={true}>
                 <Registrarme />
+              </Route>
+              <Route path="/burgers" exact={true}>
+                <Burgers />
               </Route>
               <Route path="/profile" exact={true}>
                 <Profile />
