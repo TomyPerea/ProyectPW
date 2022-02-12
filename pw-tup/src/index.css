@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: lightgray;
+  /*background-image: url("https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png");*/
 }
 
 code {
