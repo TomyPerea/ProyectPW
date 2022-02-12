@@ -9,9 +9,11 @@ from rest_framework.response import Response
 from api.models import Beers, Burgers
 from api.serializers import BeersSerializer, RegisterSerializer, MeSerializer, BurgersSerializer
 
+serializers = [BeersSerializer, BurgersSerializer]
+
 
 class BeersViewSet(viewsets.ModelViewSet):
-    serializer_class = BeersSerializer
+    serializer_class = serializers[0]
     queryset = Beers.objects.all()
 
     def get_permissions(self):
@@ -30,7 +32,7 @@ class BeersViewSet(viewsets.ModelViewSet):
 
 
 class BurgersViewSet(viewsets.ModelViewSet):
-    serializer_class = BurgersSerializer
+    serializer_class = serializers[1]
     queryset = Burgers.objects.all()
 
     def get_permissions(self):
@@ -39,6 +41,13 @@ class BurgersViewSet(viewsets.ModelViewSet):
         else:
             self.permission_classes = []
         return super(BurgersViewSet, self).get_permissions()
+
+    def get_queryset(self):
+            queryset = self.queryset.all()
+            tipo = self.request.query_params.get('type')
+            if tipo is not None:
+                queryset = queryset.filter(type=tipo)
+            return queryset
 
 
 class RegisterView(generics.CreateAPIView):
