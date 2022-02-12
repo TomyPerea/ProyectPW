@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import {httpGet, httpPost} from "../../Utils/httpFunctions";
 import {httpPut,httpDelete} from "../../Utils/httpFunctions";
 
-const axios = require('axios');
 
 function Beers () {
 
@@ -15,19 +14,10 @@ function Beers () {
     const [name, setName] = useState([])
     const [price, setPrice] = useState([])
     const [type, setType] = useState([])
-    const [review, setreview] = useState([])
+    const [review, setReview] = useState([])
+    const [cerveza, setCerveza] = useState();
+    const [filtered, setFiltered] = useState([])
 
-
-    /*const clickfunction = () => {
-        setRubias(!Rubias)
-    }
-    const negrasfilter = () => {
-        setNegras(!Negras)
-    }
-    const redfilter = () => {
-        setRojas(!Rojas)
-    }
-*/
     let finalbeers;
     if (Rubias) {
         finalbeers = Beers.filter((beer) => {
@@ -47,20 +37,17 @@ function Beers () {
 
     function myFunction() {
         let x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
+        if (x.style.display === "flex") {
             x.style.display = "none";
+        } else {
+            x.style.display = "flex";
         }
     }
-    
 
     const fetchbeers = () => {
         httpGet('api/beers/')
             .then((res) => setBeers(res.data))
     }
-
-
 
     const createBeers = (e) => {
         e.preventDefault()
@@ -68,9 +55,18 @@ function Beers () {
             .then(fetchbeers)
     }
 
-    const [cerveza, setCerveza] = useState();
+    const clickFunction = () => {
+        setFiltered(!filtered)
+    }
 
+    const reName = () => {
+        myFunction();
+        clickFunction()
+    }
 
+    const getName = () => {
+        return filtered ? "Filtrar" : "Dejar de filtrar"
+    }
 
     const handleIdChange = (event) => {
         setCerveza({ ...cerveza, id: event.target.value });
@@ -93,7 +89,6 @@ function Beers () {
 
 
     useEffect(fetchbeers, [])
-    /*useEffect(myFunction)*/
 
     return (
         <div className="backgroundColor">
@@ -102,7 +97,7 @@ function Beers () {
                     <h1 className="blondes-title">NUESTRAS CERVEZAS</h1>
                 </div>
                 <div className="botones-container">
-                    <button className="filtro" id="sex" onClick={myFunction}>Filtrar</button>
+                    <button className="filtro" id="sex" onClick={reName}>{getName()}</button>
                     <div className="x" id="myDIV">
                         <div>
                             <button className="item-type" onClick={() => {httpGet('api/beers/?type=rubia')
@@ -120,12 +115,11 @@ function Beers () {
                             <button onClick={fetchbeers}>Todas</button>
                         </div>
                     </div>
-
                         <div className="container">
                             <div className="row">
                                 <form onSubmit={createBeers} className="col-lg-6">
                                     <fieldset>
-                                        <legend>Nueva Reseña</legend>
+                                        <legend className="custom-legend">Nueva Reseña</legend>
                                         <div className="mb-3">
                                             <label className="form-label">Nombre</label>
                                             <input type="text" className="form-control" value={name} placeholder="Nombre"
@@ -144,13 +138,14 @@ function Beers () {
                                         <div className="mb-3">
                                             <label className="form-label">Reseña</label>
                                             <input type="text" className="form-control" value={review} placeholder="Opinion de la birra"
-                                                   onChange={(e) =>setreview(e.target.value)}/>
+                                                   onChange={(e) =>setReview(e.target.value)}/>
                                         </div>
                                         <button type="submit" className="btn btn-primary">Crear Cerveza</button>
                                     </fieldset>
                                 </form>
-                                <div  className="col-lg-6">
-                                    <form action="">
+                                <div  className="form-modify col-lg-6">
+                                    <legend>Modificar reseña</legend>
+                                    <form action="" className="form-container">
                                         <div className="row">
                                             <div className="col-lg-12">
                                                 <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
@@ -170,17 +165,17 @@ function Beers () {
                                         </div>
                                         <div className="container">
                                             <div className="col-lg-12">
-                                                <button onClick={(e)=>{
+                                                <button className="button-modify" onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpGet('api/beers/'+cerveza.id+"/")
                                                         .then((res) => setCerveza(res.data))
                                                 }}>Buscar</button>
-                                                <button onClick={(e)=>{
+                                                <button className="button-modify" onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpPut('api/beers/' + cerveza.id + "/", cerveza)
                                                         .then(window.location.reload);
                                                 }}>Modificar</button>
-                                                <button onClick={(e)=>{
+                                                <button className="button-modify" onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpDelete('api/beers/'+cerveza.id+"/")
                                                         .then(fetchbeers)
@@ -205,7 +200,6 @@ function Beers () {
                                         <h2 className="idbeer">{beer.id}</h2>
                                         <label>Descripcion</label>
                                         <p>{beer.review}</p>
-                                        {/*<button type="submit">delete</button>*/}
                                     </form>
                                 </div>
                             )

@@ -14,10 +14,12 @@ export const httpPost = async (endpoint, data, config =
     {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}) => {
     return axios.post(baseUrl + endpoint, data, config)
 }
+
 export const httpPost2 = async (endpoint, data) => {
     return axios.post(baseUrl + endpoint, data,
     )
 }
+
 export const httpPut = async (endpoint, data) => {
     return axios.put(baseUrl + endpoint, data, {
         headers: {

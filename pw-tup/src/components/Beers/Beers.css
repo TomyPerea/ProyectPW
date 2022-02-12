@@ -5,8 +5,8 @@
 }
 
 .blondes-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 6px;
     color: black;
     text-align: center;
     padding: 20px;
@@ -93,24 +93,42 @@
 .Big-container{
     flex-wrap: wrap;
 }
+
 .botones-container{
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
+
 .filtro{
     color: black;
 }
-.tipodebir{
 
-    color: brown;
+legend {
+    text-align: center;
 }
+
+.form-container {
+    text-align: center;
+
+}
+
+.button-modify {
+    margin: 20px;
+    height: 50px;
+    width: 90px;
+}
+
 .x{
     display: none;
+    justify-content: space-around;
+    margin: 10px;
 }
 
-
-
 .item-type{
+    display: flex;
+}
 
-
+.button-modify {
+    padding: 5px;
 }

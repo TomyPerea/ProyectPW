@@ -62,6 +62,7 @@ button:hover {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    box-shadow: #716b6b;
 }
 
 .sep {
@@ -107,4 +108,5 @@ button:hover {
 .navbar li ul li ul {
     right:-140px;
 }
+
 

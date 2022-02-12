@@ -1,12 +1,19 @@
 .container-title {
     background-color: #ff8e1b;
-    padding: 20px;
+    height: 80px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
 }
 
+/*
 h1 {
     font-weight: bold;
+}
+*/
+
+.botones-container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
 }
 
 .product-container {
@@ -31,4 +38,14 @@ h1 {
 
 .product-price {
     margin-bottom: 20px;
+}
+
+.x{
+    display: none;
+}
+
+.title {
+    padding: 20px;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 6px;
 }
