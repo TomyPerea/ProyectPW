@@ -7,9 +7,9 @@ import {httpPut,httpDelete} from "../../Utils/httpFunctions";
 
 function Beers () {
 
-    const [Rubias, setRubias] = useState(false)
-    const [Rojas, setRojas] = useState(false)
-    const [Negras, setNegras] = useState(false)
+    const [Rubias] = useState(false)
+    const [Rojas] = useState(false)
+    const [Negras] = useState(false)
     const [Beers, setBeers] = useState([])
     const [name, setName] = useState([])
     const [price, setPrice] = useState([])
@@ -17,6 +17,7 @@ function Beers () {
     const [review, setReview] = useState([])
     const [cerveza, setCerveza] = useState();
     const [filtered, setFiltered] = useState([])
+
 
     let finalbeers;
     if (Rubias) {
@@ -42,6 +43,10 @@ function Beers () {
         } else {
             x.style.display = "flex";
         }
+    }
+
+    const refreshPage = () => {
+        window.location.reload(false)
     }
 
     const fetchbeers = () => {
@@ -146,21 +151,23 @@ function Beers () {
                                 <div  className="form-modify col-lg-6">
                                     <legend>Modificar reseña</legend>
                                     <form action="" className="form-container">
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
-                                                <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}placeholder="Nombre"/>
+                                        <div>
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <input type="number" onChange={handleIdChange} defaultValue={cerveza?.id} placeholder="Nro de cerveza"/>
+                                                    <input type="text" onChange={handleNombreChange} defaultValue={cerveza?.name}placeholder="Nombre"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}placeholder="Precio"/>
-                                                <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}placeholder="roja, rubia o negra"/>
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <input type="number" onChange={handlePrecioChange} defaultValue={cerveza?.price}placeholder="Precio"/>
+                                                    <input type="text" onChange={handleEstiloChange} defaultValue={cerveza?.type}placeholder="roja, rubia o negra"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}placeholder="Modificar descripcion"/>
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <input type="text" onChange={handleReseniaChange} defaultValue={cerveza?.review}placeholder="Modificar descripcion"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="container">
@@ -173,19 +180,19 @@ function Beers () {
                                                 <button className="button-modify" onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpPut('api/beers/' + cerveza.id + "/", cerveza)
-                                                        .then(window.location.reload);
+                                                        .then(refreshPage);
                                                 }}>Modificar</button>
                                                 <button className="button-modify" onClick={(e)=>{
                                                     e.preventDefault();
                                                     httpDelete('api/beers/'+cerveza.id+"/")
-                                                        .then(fetchbeers)
+                                                        .then(refreshPage)
+                                                        .then(fetchbeers);
                                                 }}>Eliminar</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 <div className="products-container">

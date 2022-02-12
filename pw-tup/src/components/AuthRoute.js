@@ -7,6 +7,7 @@ const AuthRoute = ({exact, children, path}) => {
 
     const [loading, setLoading] = useState(true)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     useEffect(() => {
         httpGet('api/me/').then((res) => {
             setIsLoggedIn(true)

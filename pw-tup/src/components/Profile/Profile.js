@@ -1,8 +1,8 @@
-import {Link} from 'react-router-dom';
+
 import {useEffect, useState} from "react";
-import {httpGet, httpPut, httpDelete} from "../../Utils/httpFunctions";
+import {httpGet} from "../../Utils/httpFunctions";
 import './Profile.css';
-import {findByDisplayValue} from "@testing-library/react";
+
 
 
 const Profile = () => {
@@ -12,12 +12,6 @@ const Profile = () => {
   useEffect(() => {
     httpGet('api/me/').then((res) => setUserData(res.data))
   }, [])
-
-
-
-  const handleIdBorrar = (event) => {
-    setUserData({ ...userData, id: event.target.value });
-  };
 
   const fetchUser = () => {
     httpGet('api/signin/')
