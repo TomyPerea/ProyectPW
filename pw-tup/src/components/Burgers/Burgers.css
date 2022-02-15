@@ -56,3 +56,7 @@ h1 {
     margin: 5px;
     align-items: center;
 }
+
+.item-type {
+    display: flex;
+}

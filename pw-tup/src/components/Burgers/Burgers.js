@@ -85,7 +85,7 @@ function Burgers () {
                     <h1 className="title">NUESTRAS HAMBURGUESAS</h1>
                 </div>
                 <div className="botones-container">
-                    <button className="filtro" id="sex" onClick={reName}>{getName()}</button>
+                    <button className="filtro" onClick={reName}>{getName()}</button>
                     <div className="x" id="myDIV">
                         <div>
                             <button className="item-type" onClick={() => {httpGet('api/burgers/?type=simple')

@@ -4,6 +4,16 @@
     margin-bottom: 5px;
 }
 
+.carousel-img2 {
+    height: 500px;
+    width: 50%;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+}
+
 .centrar {
     display: block;
     margin: auto;
