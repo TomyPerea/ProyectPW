@@ -4,6 +4,10 @@
     height: 80px;
 }
 
+.backgroundColor {
+    padding-top: 100px;
+}
+
 .blondes-title {
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 6px;

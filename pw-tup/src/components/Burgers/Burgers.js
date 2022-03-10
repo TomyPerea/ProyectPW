@@ -79,7 +79,7 @@ function Burgers () {
     useEffect(fetchburgers,[])
 
     return (
-        <div>
+        <div className="padding-top">
             <div>
                 <div className="container-title">
                     <h1 className="title">NUESTRAS HAMBURGUESAS</h1>

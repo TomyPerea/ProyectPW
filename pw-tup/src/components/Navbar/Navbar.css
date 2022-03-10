@@ -63,6 +63,11 @@ button:hover {
     display: flex;
     justify-content: space-between;
     box-shadow: #716b6b;
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    z-index: 100;
+
 }
 
 .sep {

@@ -10,6 +10,10 @@ h1 {
 }
 */
 
+.padding-top {
+    padding-top: 100px;
+}
+
 .botones-container{
     display: flex;
     flex-direction: column;

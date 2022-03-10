@@ -52,3 +52,8 @@
     padding: 50px;
     text-align: center;
 }
+
+.carousel-item {
+    position: relative;
+    z-index: 10;
+}
